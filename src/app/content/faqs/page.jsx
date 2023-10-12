@@ -5,9 +5,9 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 
 export default function FaqsPage() {
   return (
-    <article>
-      <h2 className=" text-huros-1 mb-6">FAQs</h2>
-      <section>
+    <article className="xl:grid xl:grid-cols-3">
+      <h2 className=" text-huros-1 mb-6 xl:col-span-1">FAQs</h2>
+      <section className="xl:col-span-2">
         {faqs.map((item) => {
           return (
             <FaqSection topic={item.header}>
@@ -22,7 +22,7 @@ export default function FaqsPage() {
 
 function FaqSection({ topic, children }) {
   return (
-    <section className=" my-16">
+    <section className=" mb-16">
       <h3 className="mb-4 text-huros-1">{topic}</h3>
       {children}
     </section>
