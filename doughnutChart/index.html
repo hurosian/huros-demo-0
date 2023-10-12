@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+</head>
+
+<body style="background-color: black">
+    <div style="margin: auto; position: relative; height: 100vh">
+        <canvas id="myChart"></canvas>
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const ctx = document.getElementById("myChart");
+        const data = {
+            labels: [
+                "Team & Advisors",
+                "Reserves",
+                "Token Sale",
+                "Ecosystem",
+                "Marketing/Partnerships",
+                "Future Dividends Reserve",
+                "Liquidity Pool",
+            ],
+            datasets: [
+                {
+                    data: [5, 15, 10, 35, 10, 5, 20],
+                    backgroundColor: [
+                        "#8C6D1F",
+                        "#AB9153",
+                        "#B59A5A",
+                        "#B7AA8C",
+                        "#C6A556",
+                        "#D6C8AB",
+                        "#FEE09A",
+                    ],
+                    hoverOffset: 4,
+                },
+            ],
+        };
+        let config;
+
+
+        config = {
+            type: "doughnut",
+            data: data,
+            options: {
+                cutout: "70%",
+                radius: "40%",
+                position: "top",
+                responsive: true,
+                layout: {
+                    padding: {
+                        left: 5,
+                        right: 5,
+                        top: 5,
+                        bottom: 5,
+                    },
+                },
+                events: ["click", "mousemove", "touchstart"],
+                onHover: handleHover,
+                plugins: {
+                    tooltip: {
+                        enabled: false,
+                    },
+
+                    legend: {
+                        display: false,
+                        position: "bottom",
+                        align: "left",
+                        onHover: handleHover,
+                        labels: {
+                            color: "white",
+                            boxWidth: 30,
+                            boxHeight: 25,
+                            // font:
+                            padding: 10,
+                        },
+                    },
+                    datalabels: {
+                        borderRadius: 5,
+                        color: "white",
+                        anchor: "end",
+                        align: "end",
+                        offset: 10,
+                        display: function (context) {
+                            return context.dataset.data;
+                        },
+                        font: {
+                            weight: "normal",
+                            size: 12,
+                        },
+                        padding: 10,
+                        formatter: function (value, context) {
+                            let label = context.chart.data.labels[context.dataIndex]
+                            return label.length > 10 ? `${label.match(/\w+\s*/g).join('\n')}\n${value}%` : `${label}\n${value}%`;
+                        },
+                    },
+                },
+            },
+        };
+
+        Chart.register(ChartDataLabels);
+
+        // Chart.register(getChartLabelPlugin());
+        const myChart = new Chart(ctx, config);
+
+        function removeColours(itemIndex) {
+            myChart.data.datasets[0].backgroundColor.forEach(
+                (color, index, colors) => {
+                    colors[index] =
+                        index === itemIndex || color.length === 9 ? color : color + "4D";
+                }
+            );
+            myChart.update();
+        }
+
+        function restoreColours() {
+            myChart.data.datasets[0].backgroundColor.forEach(
+                (color, index, colors) => {
+                    colors[index] = color.length === 9 ? color.slice(0, -2) : color;
+                }
+            )
+            myChart.update()
+        }
+
+        function handleHover(evt, item) {
+            if (item.length === 0) {
+                restoreColours()
+            } else {
+                restoreColours()
+                removeColours(item[0].index)
+            }
+        }
+    });
+</script>
+
+</html>

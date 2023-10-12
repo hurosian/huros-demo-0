@@ -1,0 +1,15 @@
+@tailwind components;
+
+
+@layer components {
+    .hoverable div p {
+        @apply opacity-100
+        md:opacity-0
+        transition ease-in-out
+
+    }
+
+    .hoverable:hover div p {
+        @apply opacity-100 ease-in;
+    }
+}

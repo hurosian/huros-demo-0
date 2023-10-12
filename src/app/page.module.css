@@ -1,0 +1,43 @@
+@tailwind components;
+
+@layer components {
+.title {
+  @apply text-white
+    flex
+    items-center
+    justify-center
+    w-full
+    h-full
+    border-huros-bg-gold-1
+    border-b-2
+    p-6
+
+    md:border-b-0
+    md:border-r-2
+    md:my-0
+    ; 
+}
+
+.titleLast {
+    @apply title
+    border-none
+}
+
+.titleGrid {
+  @apply grid 
+    grid-rows-5
+    grid-cols-1
+    px-12
+    
+
+    md:grid
+    md:grid-rows-1
+    md:grid-cols-5
+    md:px-0
+    md:gap-0
+    md:w-screen
+    md:text-center
+    md:h-full;
+}
+
+}
