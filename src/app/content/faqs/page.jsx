@@ -10,8 +10,8 @@ export default function FaqsPage() {
       <section className="xl:col-span-2">
         {faqs.map((item) => {
           return (
-            <FaqSection topic={item.header}>
-              <QnaAccordian qnas={item.qnas} />
+            <FaqSection topic={item.header} key={item.header}>
+              <QnaAccordian qnas={item.qnas}/>
             </FaqSection>
           );
         })}

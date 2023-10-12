@@ -201,7 +201,7 @@ export default function PlatformPage() {
                 </h2>
                 <p className="px-4 text-center">
                   Full governance lies in the hands of the community. Each
-                  timepiece forms its own 'DAO', powered by a transparent voting
+                  timepiece forms its own `&lsquo;`DAO`&lsquo;`, powered by a transparent voting
                   system to create an equitable and interactive environment for
                   all users.
                 </p>
