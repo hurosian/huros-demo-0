@@ -1,10 +1,7 @@
 "use server";
 import { google } from "googleapis";
-import keys from "huros-v1-9a487d093eaf.json";
 
 export async function submitInterest(prevState, formData) {
-  console.log("client_email", keys.client_email);
-  console.log("private_email", keys.private_key);
 
   console.log("client_email_env", process.env.GOOGLE_SPREADSHEET_CLIENT_EMAIL);
   console.log("private_email_env", process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY);
