@@ -21,10 +21,11 @@ export default function AboutPage() {
   useEffect(() => {
     if (interestFormState?.type === "success") {
       window.alert("Successfully submitted interest!");
+      changeOverlayState();
     } else if (interestFormState?.type === "failed") {
       window.alert("Failed to submit interest. This shouldn't happen.");
+      changeOverlayState();
     }
-    changeOverlayState();
   }, [interestFormState]);
 
   return (
