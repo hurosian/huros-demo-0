@@ -41,6 +41,7 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen bg-huros-bg-gray-1">
+      <div>
       <header className="">
         <div className="h-32 md:h-48 flex item-center justify-center w-full relative">
           <Link href="/">
@@ -110,7 +111,7 @@ export default function Layout({ children }) {
           </section>
         </nav>
       </header>
-      <main className=" mx-8 my-8 md:mx-16 md:my-16 min-h-fit  border-gray-700">
+      <main className=" px-8 py-8 md:px-16 md:py-16 min-h-fit  border-gray-700">
         {children}
       </main>
       <footer className=" h-48">
@@ -161,6 +162,7 @@ export default function Layout({ children }) {
           </p>
         </div>
       </footer>
+      </div>
     </div>
   );
 }

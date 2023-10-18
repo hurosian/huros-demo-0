@@ -1,0 +1,21 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  .overlay {
+    @apply fixed
+    w-screen
+    min-h-fit h-screen
+    px-10 py-10
+    top-0
+    bottom-0
+    left-0
+    right-0
+    bg-slate-800
+    border
+    border-huros-1
+    overflow-y-scroll
+    z-[1000];
+  }
+}

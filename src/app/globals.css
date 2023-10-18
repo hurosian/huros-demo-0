@@ -172,29 +172,32 @@ button:hover {
 } */
 
 /* form styles */
-/* form {
+form {
   @apply 
-    py-4 px-7 
-    bg-opacity-5 
-    rounded-md 
+    py-4 px-2 
     block 
     mx-auto 
-    min-w-fit w-1/4;
+    min-w-fit w-2/3;
 }
 form label {
-  @apply block;
+  @apply text-white
+  ;
 }
 form input,
 form textarea,
 form select {
   @apply 
     block 
-    mt-2 my-4 px-2 py-1 
+    mt-2 my-4 px-2 py-1
+    h-10
     rounded-sm w-full;
 }
 form button {
   @apply block mx-auto;
-} */
+}
+form button:disabled{
+  @apply bg-huros-11
+}
 
 /* feedback styles */
 /* .error {
