@@ -6,7 +6,7 @@ export async function submitInterest(prevState, formData) {
     const client = new google.auth.JWT(
       process.env.GOOGLE_SPREADSHEET_CLIENT_EMAIL,
       null,
-      process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY,
+      process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY.split(String.raw`\n`).join('\n'),
       ["https://www.googleapis.com/auth/spreadsheets"]
 
     );
@@ -15,7 +15,7 @@ export async function submitInterest(prevState, formData) {
       if (err) {
         // return res.status(400).send(JSON.stringify({ error: true }));
         console.log(err)
-        return { type: "failed", message:"Failed to call google API services"}
+        throw(err)
       }
 
       const gsapi = google.sheets({ version: "v4", auth: client });
