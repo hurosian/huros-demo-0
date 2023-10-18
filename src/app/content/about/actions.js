@@ -7,7 +7,7 @@ export async function submitInterest(prevState, formData) {
       process.env.GOOGLE_SPREADSHEET_CLIENT_EMAIL,
       null,
       // process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY.split(String.raw`\n`).join('\n'),
-      process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY,
+      process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY.replace(/\\n/g, "\n"),
       ["https://www.googleapis.com/auth/spreadsheets"]
 
     );
