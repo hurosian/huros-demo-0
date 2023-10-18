@@ -11,6 +11,7 @@ export async function submitInterest(prevState, formData) {
       ["https://www.googleapis.com/auth/spreadsheets"]
 
     );
+    console.log(client)
 
     client.authorize(async function (err, tokens) {
       if (err) {
@@ -47,7 +48,8 @@ export async function submitInterest(prevState, formData) {
         valueInputOption: "USER_ENTERED",
       };
 
-      await gsapi.spreadsheets.values.append(opt);
+      let res =await gsapi.spreadsheets.values.append(opt);
+      console.log(res)
     });
     return { type: "success", message: "ok" };
   } catch (e) {
