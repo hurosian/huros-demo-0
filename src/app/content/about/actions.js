@@ -3,7 +3,6 @@ import { google } from "googleapis";
 
 export async function submitInterest(prevState, formData) {
   try {
-    console.log("hello!");
 
     const credential = JSON.parse(
       Buffer.from(process.env.GOOGLE_SHEETS_CREDENTIALS, "base64").toString()
@@ -53,7 +52,6 @@ export async function submitInterest(prevState, formData) {
     };
 
     let res = await gsapi.spreadsheets.values.append(opt);
-    console.log(res)
 
     return { type: "success", message: "ok" };
   } catch (e) {
