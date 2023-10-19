@@ -85,12 +85,12 @@ export default function TeamPage() {
           <div>
             <h2 className=" text-huros-1 mb-6 ">ADVISORS</h2>
             <div className="grid grid-cols-2 gap-x-4 gap-y-6">
-              <TeamCard
+              {/* <TeamCard
                 image={imgWillynn}
                 name={"Willynn Ng"}
                 role={""}
                 link={"https://www.linkedin.com/in/willynn/"}
-              />
+              /> */}
               <TeamCard
                 image={imgRan}
                 name={"Ran Yang"}
@@ -111,7 +111,7 @@ function TeamCard({ image, name, role, link }) {
       <a href={link} target="_blank">
         <Image src={image} className=" mb-2 rounded-md" alt={name} />
         <h3 className=" text-huros-1">{name}</h3>
-        <p className="text-center">{role}</p>
+        <p className="">{role}</p>
       </a>
     </article>
   );

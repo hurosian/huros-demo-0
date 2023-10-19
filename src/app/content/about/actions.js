@@ -3,26 +3,38 @@ import { google } from "googleapis";
 
 export async function submitInterest(prevState, formData) {
   try {
+    console.log("hello!");
+    const privateKey = Buffer.from(
+      process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY_ENCODED,
+      "base64"
+    ).toString();
+
+    console.log("PRIVATE KEY", privateKey);
+
     const client = new google.auth.JWT(
       process.env.GOOGLE_SPREADSHEET_CLIENT_EMAIL,
       null,
+      privateKey,
       // process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY.split(String.raw`\n`).join('\n'),
-      process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY.replace(/\\n/g, "\n"),
-      ["https://www.googleapis.com/auth/spreadsheets"]
+      // process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY.replace(/\\n/g, "\n"),
 
+      ["https://www.googleapis.com/auth/spreadsheets"]
     );
-    console.log(client)
+    console.log("CLIENT", client);
 
     client.authorize(async function (err, tokens) {
       if (err) {
         // return res.status(400).send(JSON.stringify({ error: true }));
-        console.log(err)
-        throw(err)
+        console.log(err);
+        throw err;
       }
 
+      console.log("CONNECTING SHEETS API")
       const gsapi = google.sheets({ version: "v4", auth: client });
+      console.log("GSAPI", gsapi)
 
       //CUSTOMIZATION FROM HERE
+      
       const opt = {
         spreadsheetId: "1V_Ka3e-SISwLfhpcORL7T22xqe91ZltxLOvup0h2QWI",
         range: "Sheet1!A2:I2",
@@ -47,9 +59,10 @@ export async function submitInterest(prevState, formData) {
         },
         valueInputOption: "USER_ENTERED",
       };
-
-      let res =await gsapi.spreadsheets.values.append(opt);
-      console.log(res)
+    
+      console.log("STARTING APPENDING")
+      let res = await gsapi.spreadsheets.values.append(opt);
+      console.log("RESULTS", res);
     });
     return { type: "success", message: "ok" };
   } catch (e) {
