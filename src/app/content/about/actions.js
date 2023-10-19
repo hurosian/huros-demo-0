@@ -18,50 +18,6 @@ export async function submitInterest(prevState, formData) {
       credential.private_key_id
     );
 
-    // async function updateSheets(err, tokens) {
-    //   if (err) {
-    //     console.log(err);
-    //     throw err;
-    //   }
-
-    //   console.log("CONNECTING SHEETS API");
-    //   const gsapi = google.sheets({ version: "v4", auth: client });
-    //   console.log("GSAPI", gsapi);
-
-    //   //CUSTOMIZATION FROM HERE
-
-    //   const opt = {
-    //     spreadsheetId: "1V_Ka3e-SISwLfhpcORL7T22xqe91ZltxLOvup0h2QWI",
-    //     range: "Sheet1!A2:I2",
-    //     resource: {
-    //       values: [
-    //         [
-    //           formData.get("fullName"),
-    //           formData.get("email"),
-    //           formData.get("company"),
-    //           formData.get("telegram"),
-    //           formData.get("discord"),
-    //           formData.get("wallet"),
-    //           formData.get("location"),
-    //           formData.get("gender"),
-    //           [
-    //             formData.get("useHuros"),
-    //             formData.get("investInHuros"),
-    //             formData.get("partnerWithHuros"),
-    //           ].join(", "),
-    //         ],
-    //       ],
-    //     },
-    //     valueInputOption: "USER_ENTERED",
-    //   };
-
-    //   console.log("STARTING APPENDING");
-    //   let res = await gsapi.spreadsheets.values.append(opt);
-    //   console.log("RESULTS", res);
-    // }
-
-    // client.authorize(updateSheets);
-
     client.authorize((err) => {
       if (err)
       {
