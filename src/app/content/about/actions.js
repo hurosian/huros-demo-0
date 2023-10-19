@@ -4,21 +4,28 @@ import { google } from "googleapis";
 export async function submitInterest(prevState, formData) {
   try {
     console.log("hello!");
-    const privateKey = Buffer.from(
-      process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY_ENCODED,
-      "base64"
-    ).toString();
 
-    console.log("PRIVATE KEY", privateKey);
+    const credential = JSON.parse(
+      Buffer.from(process.env.GOOGLE_SHEETS_CREDENTIALS, 'base64').toString()
+  );
+
+    // const client = new google.auth.JWT(
+    //   process.env.GOOGLE_SPREADSHEET_CLIENT_EMAIL,
+    //   null,
+    //   // privateKey,
+    //   // process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY.split(String.raw`\n`).join('\n'),
+    //   process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY.replace(/\\n/g, "\n"),
+
+    //   ["https://www.googleapis.com/auth/spreadsheets"]
+    // );
 
     const client = new google.auth.JWT(
-      process.env.GOOGLE_SPREADSHEET_CLIENT_EMAIL,
+      credential.client_email,
       null,
-      privateKey,
-      // process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY.split(String.raw`\n`).join('\n'),
-      // process.env.GOOGLE_SPREADSHEET_PRIVATE_KEY.replace(/\\n/g, "\n"),
-
-      ["https://www.googleapis.com/auth/spreadsheets"]
+      credential.private_key,
+      ["https://www.googleapis.com/auth/spreadsheets"],
+      null,
+      credential.private_key_id
     );
     console.log("CLIENT", client);
 
