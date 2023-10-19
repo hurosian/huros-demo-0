@@ -6,8 +6,8 @@ export async function submitInterest(prevState, formData) {
     console.log("hello!");
 
     const credential = JSON.parse(
-      Buffer.from(process.env.GOOGLE_SHEETS_CREDENTIALS, 'base64').toString()
-  );
+      Buffer.from(process.env.GOOGLE_SHEETS_CREDENTIALS, "base64").toString()
+    );
 
     // const client = new google.auth.JWT(
     //   process.env.GOOGLE_SPREADSHEET_CLIENT_EMAIL,
@@ -29,19 +29,18 @@ export async function submitInterest(prevState, formData) {
     );
     console.log("CLIENT", client);
 
-    client.authorize(async function (err, tokens) {
+    async function updateSheets(err, tokens) {
       if (err) {
-        // return res.status(400).send(JSON.stringify({ error: true }));
         console.log(err);
         throw err;
       }
 
-      console.log("CONNECTING SHEETS API")
+      console.log("CONNECTING SHEETS API");
       const gsapi = google.sheets({ version: "v4", auth: client });
-      console.log("GSAPI", gsapi)
+      console.log("GSAPI", gsapi);
 
       //CUSTOMIZATION FROM HERE
-      
+
       const opt = {
         spreadsheetId: "1V_Ka3e-SISwLfhpcORL7T22xqe91ZltxLOvup0h2QWI",
         range: "Sheet1!A2:I2",
@@ -66,11 +65,13 @@ export async function submitInterest(prevState, formData) {
         },
         valueInputOption: "USER_ENTERED",
       };
-    
-      console.log("STARTING APPENDING")
+
+      console.log("STARTING APPENDING");
       let res = await gsapi.spreadsheets.values.append(opt);
       console.log("RESULTS", res);
-    });
+    }
+
+    client.authorize(updateSheets);
     return { type: "success", message: "ok" };
   } catch (e) {
     return { type: "failed", message: "Failed to update." };
