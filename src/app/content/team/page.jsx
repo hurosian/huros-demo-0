@@ -46,7 +46,7 @@ export default function TeamPage() {
             <TeamCard
               image={imgEvangeline}
               name={"Evangeline Chan"}
-              role={"CCO"}
+              role={"CAO"}
               link={"https://www.linkedin.com/in/evangeline-chan-bb0657191/"}
             />
             <TeamCard
@@ -69,21 +69,21 @@ export default function TeamPage() {
             <h2 className=" text-huros-1 mb-6">CORE CONTRIBUTORS</h2>
             <div className="grid grid-cols-2 gap-x-4 gap-y-6">
               <TeamCard
-                image={imgJoy}
-                name={"Joy Sim"}
-                role={"Growth Strategist"}
-                link={"https://www.linkedin.com/in/joy-sim-kia/"}
-              />
-              <TeamCard
                 image={imgGwenda}
                 name={"Gwenda Soh"}
                 role={"Outreach & Partnerships"}
                 link={"https://www.linkedin.com/in/gwenda-soh-bb0b5677/"}
               />
+                            <TeamCard
+                image={imgRan}
+                name={"Ran Yang"}
+                role={""}
+                link={"https://www.linkedin.com/in/ran-yang-04410416b/"}
+              />
             </div>
           </div>
           <div>
-            <h2 className=" text-huros-1 mb-6 ">ADVISORS</h2>
+            <h2 className=" text-huros-1 mb-6 "></h2>
             <div className="grid grid-cols-2 gap-x-4 gap-y-6">
               {/* <TeamCard
                 image={imgWillynn}
@@ -91,12 +91,6 @@ export default function TeamPage() {
                 role={""}
                 link={"https://www.linkedin.com/in/willynn/"}
               /> */}
-              <TeamCard
-                image={imgRan}
-                name={"Ran Yang"}
-                role={""}
-                link={"https://www.linkedin.com/in/ran-yang-04410416b/"}
-              />
             </div>
           </div>
         </section>
