@@ -239,7 +239,7 @@ export default function PlatformPage() {
           and exit for both casual users and long-term serious investors.
         </p>
       </section>
-      <section className=" h-fit my-8">
+      <section className=" h-fit my-8 bg-huros-bg-gray-1 p-10">
         <div className="grid grid-flow-row md:grid-flow-col md:grid-cols-2 md:w-full items-center">
           <div className="h-44 md:h-full md:w-auto">
             <div

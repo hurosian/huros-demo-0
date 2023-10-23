@@ -40,7 +40,7 @@ export default function Layout({ children }) {
   }, [pathname]);
 
   return (
-      <div className=" bg-huros-bg-gray-1 bg-opacity-70">
+      <div className=" bg-huros-bg-gray-1 bg-opacity-80">
         <header className="">
           <div className="h-32 md:h-48 flex item-center justify-center w-full relative">
             <Link href="/">
