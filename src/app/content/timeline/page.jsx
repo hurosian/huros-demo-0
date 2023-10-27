@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TimelinePage() {
   return (
-    <article className=" grid grid-flow-row gap-y-16  xl:grid-flow-col xl:grid-cols-3 xl:gap-x-10">
+    <article className=" grid grid-flow-row gap-y-16  xl:grid-flow-col xl:grid-cols-3 xl:gap-x-10 min-h-screen">
       <section>
         <div className="mb-6">
           <h1 className=" text-huros-1">
