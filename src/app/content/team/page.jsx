@@ -12,7 +12,7 @@ import imgWillynn from "public/team_pics/img-willynn-edited.png";
 
 export default function TeamPage() {
   return (
-    <article className=" grid grid-flow-row xl:grid-flow-col xl:grid-cols-3 xl:gap-x-10">
+    <article className=" grid grid-flow-row xl:grid-flow-col xl:grid-cols-3 xl:gap-x-10 min-h-screen">
       <section className="mb-14 lg:col-span-1">
         <div className="mb-6">
           <h1 className=" text-huros-1">THE HUROS TEAM</h1>
@@ -44,12 +44,6 @@ export default function TeamPage() {
               link={"https://www.linkedin.com/in/jglenntan/"}
             />
             <TeamCard
-              image={imgEvangeline}
-              name={"Evangeline Chan"}
-              role={"CAO"}
-              link={"https://www.linkedin.com/in/evangeline-chan-bb0657191/"}
-            />
-            <TeamCard
               image={imgVernon}
               name={"Vernon Loh"}
               role={"COO"}
@@ -60,6 +54,12 @@ export default function TeamPage() {
               name={"John Tan"}
               role={"CTO"}
               link={"https://www.linkedin.com/in/johntanhanseng/"}
+            />
+            <TeamCard
+              image={imgEvangeline}
+              name={"Evangeline Chan"}
+              role={"CAO"}
+              link={"https://www.linkedin.com/in/evangeline-chan-bb0657191/"}
             />
           </div>
         </section>
@@ -74,10 +74,10 @@ export default function TeamPage() {
                 role={"Outreach & Partnerships"}
                 link={"https://www.linkedin.com/in/gwenda-soh-bb0b5677/"}
               />
-                            <TeamCard
+              <TeamCard
                 image={imgRan}
                 name={"Ran Yang"}
-                role={""}
+                role={"Blockchain"}
                 link={"https://www.linkedin.com/in/ran-yang-04410416b/"}
               />
             </div>
@@ -104,8 +104,8 @@ function TeamCard({ image, name, role, link }) {
     <article className=" flex flex-col items-center">
       <a href={link} target="_blank">
         <Image src={image} className=" mb-2 rounded-md" alt={name} />
-        <h3 className=" text-huros-1">{name}</h3>
-        <p className="">{role}</p>
+        <p className=" text-huros-1 font-bold text-xl">{name}</p>
+        <p className="text-lg">{role}</p>
       </a>
     </article>
   );

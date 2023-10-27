@@ -25,7 +25,7 @@ export default function TimelinePage() {
       </section>
 
       <div className=" grid grid-flow-row gap-y-2 gap-x-14 lg:grid-flow-col lg:grid-cols-4 xl:col-span-2">
-        <section className="grid grid-flow-row gap-y-4 border-huros-1 py-10 border-r-0 border-b-2  md:px-2 lg:border-b-0 lg:grid-rows-[8rem_14rem_16em] lg:border-r-2 ">
+        <section className="grid grid-flow-row gap-y-4 border-huros-1 py-10 border-r-0 border-b-2  md:px-2 lg:border-b-0 lg:grid-rows-[8rem_12rem_14em] lg:gap-y-0 lg:border-r-2 ">
           <h2 className=" text-huros-1">STAGE 1</h2>
           <div>
             <h3 className="mb-1 text-huros-1">OPERATIONS</h3>
@@ -46,7 +46,7 @@ export default function TimelinePage() {
             <p>Mass marketing</p>
           </div>
         </section>
-        <section className="grid grid-flow-row gap-y-4 border-huros-1 py-10 border-r-0 border-b-2   md:px-2 lg:border-b-0 lg:grid-rows-[8rem_14rem_16rem] lg:border-r-2">
+        <section className="grid grid-flow-row gap-y-4 border-huros-1 py-10 border-r-0 border-b-2   md:px-2 lg:border-b-0 lg:grid-rows-[8rem_12rem_14rem] lg:gap-y-0 lg:border-r-2">
           <h2 className=" text-huros-1">STAGE II</h2>
           <div>
             <h3 className="mb-1 text-huros-1">OPERATIONS</h3>
@@ -68,7 +68,7 @@ export default function TimelinePage() {
             <p>Increased marketing activities</p>
           </div>
         </section>
-        <section className="grid grid-flow-row gap-y-4 border-huros-1 py-10 border-r-0 border-b-2   md:px-2 lg:border-b-0 lg:grid-rows-[8rem_14rem_16rem] lg:border-r-2 ">
+        <section className="grid grid-flow-row gap-y-4 border-huros-1 py-10 border-r-0 border-b-2   md:px-2 lg:border-b-0 lg:grid-rows-[8rem_12rem_14rem] lg:gap-y-0 lg:border-r-2 ">
           <h2 className=" text-huros-1">STAGE III</h2>
           <div>
             <h3 className="mb-1 text-huros-1">OPERATIONS</h3>
@@ -89,7 +89,7 @@ export default function TimelinePage() {
             <p>Participation in global watch and web3 events</p>
           </div>
         </section>
-        <section className="grid grid-flow-row gap-y-4 pt-10  md:px-2 lg:grid-rows-[8rem_14rem_16rem] ">
+        <section className="grid grid-flow-row gap-y-4 pt-10  md:px-2 lg:grid-rows-[8rem_12rem_14rem] lg:gap-y-0 ">
           <h2 className=" text-huros-1">STAGE IV</h2>
           <div>
             <h3 className="mb-1 text-huros-1">OPERATIONS</h3>

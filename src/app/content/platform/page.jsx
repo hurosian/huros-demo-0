@@ -7,19 +7,19 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 
 import styles from "./page.module.css";
 import bgVault from "public/backgrounds/bg-vault-blackened.png";
-import bgWatch1 from "public/backgrounds/bg-watch-1.jpg";
-import bgWatch2 from "public/backgrounds/bg-watch-2.png";
-import bgWatch3 from "public/backgrounds/bg-watch-3.png";
-import bgWatch4 from "public/backgrounds/bg-watch-4.jpeg";
+import bgWatch1 from "public/backgrounds/bg-watch-1-edited.png";
+import bgWatch2 from "public/backgrounds/bg-watch-2-edited.png";
+import bgWatch3 from "public/backgrounds/bg-watch-3-edited.png";
+import bgWatch4 from "public/backgrounds/bg-watch-4-edited.png";
 
 export default function PlatformPage() {
   ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
-  const chartRef = useRef(null)
-  const chart = () => chartRef.current
+  const chartRef = useRef(null);
+  const chart = () => chartRef.current;
 
   useEffect(() => {
-    console.log(chartRef.current)
-  },[chartRef])
+    console.log(chartRef.current);
+  }, [chartRef]);
 
   const doughnutData = {
     labels: [
@@ -46,7 +46,8 @@ export default function PlatformPage() {
         hoverOffset: 4,
       },
     ],
-  };5
+  };
+  5;
 
   const config = {
     cutout: "70%",
@@ -55,15 +56,15 @@ export default function PlatformPage() {
     borderColor: "#010100",
     // responsive: true,
     width: "1",
-    height: "1",
-    layout: {
-      // padding: {
-      //   left: 5,
-      //   right: 5,
-      //   top: 5,
-      //   bottom: 5,
-      // },
-    },
+    // height: "1",
+    // layout: {
+    //   padding: {
+    //     left: 5,
+    //     right: 5,
+    //     top: 5,
+    //     bottom: 5,
+    //   },
+    // },
     events: ["click", "mousemove", "touchstart"],
     onHover: handleHover,
     plugins: {
@@ -98,7 +99,7 @@ export default function PlatformPage() {
           weight: "normal",
           size: 14,
         },
-        padding: 10,
+        padding: 5,
         formatter: function (value, context) {
           let label = context.chart.data.labels[context.dataIndex];
           return label.length > 10
@@ -155,16 +156,17 @@ export default function PlatformPage() {
           <div className="mb-12 md:mb-0">
             <h2 className=" text-center text-huros-1">EONS</h2>
             <p className=" text-center">
-              Enter the luxury investment scene at a low cost with fractions
-              (Eons) of a timepiece with high investment value, curated by our
-              network of timepiece experts.
+              Enter luxury watch investments at a low cost with fractions (Eons)
+              of a timepiece with high investment value, curated by our network
+              of timepiece experts.
             </p>
           </div>
           <div className="">
             <h2 className="text-center text-huros-1">HASTE</h2>
             <p className=" text-center">
-              Gamify the ownership experience of luxury timepieces as our users
-              stand various opportunities to win a luxury timepiece regularly.
+              Gamify the ownership expeirence of luxury timepieces with the
+              haste system, with regular opportunities to win a timepiece
+              shipped to your doorstep.
             </p>
           </div>
         </div>
@@ -174,12 +176,14 @@ export default function PlatformPage() {
           <div className={`${styles.hoverable} relative mb-12 h-[640px]`}>
             <div className="">
               <div
-                className="absolute inset-0 w-full h-full bg-[length:100%] bg-no-repeat bg-fill bg-[center]"
+                className="absolute inset-0 w-full h-full bg-fit bg-[center_bottom_50rem]"
                 style={{ backgroundImage: `url(${bgWatch1.src})` }}
               />
               <div className="absolute inset-0 w-full h-full bg-gray-900 bg-opacity-80" />
               <div className="absolute inset-0 w-full h-full py-10 z-20">
-                <h2 className="text-center text-huros-1 mb-10 h-36">Co-ownership</h2>
+                <h2 className="text-center text-huros-1 mb-10 h-36">
+                  Co-ownership
+                </h2>
                 <p className=" px-4 text-center">
                   Huros and our users share ownership over a timepiece. Huros
                   will determine the best point for sale in order to maximise
@@ -201,9 +205,9 @@ export default function PlatformPage() {
                 </h2>
                 <p className="px-4 text-center">
                   Full governance lies in the hands of the community. Each
-                  timepiece forms its own `&lsquo;`DAO`&lsquo;`, powered by a transparent voting
-                  system to create an equitable and interactive environment for
-                  all users.
+                  timepiece forms its own `&lsquo;`DAO`&lsquo;`, powered by a
+                  transparent voting system to create an equitable and
+                  interactive environment for all users.
                 </p>
               </div>
             </div>
@@ -252,10 +256,10 @@ export default function PlatformPage() {
               <div>
                 <h3 className="my-2 text-huros-1">platform benefits</h3>
                 <p className="">
-                  While Huros will offer a variety of cryptocurrencies that a
-                  user prefers, using $MINS for transactions also offer a
-                  platform discount, incentivizing long-term holding and use of
-                  our token.
+                  While Huros will offer a variety of payment methods that a
+                  user prefers, using $MINS for transactions also offer platform
+                  discounts and access to exclusive features, incentivizing
+                  long-term holding and utility of our token.
                 </p>
               </div>
               <div>
@@ -272,7 +276,7 @@ export default function PlatformPage() {
           </div>
         </div>
       </section>
-      <section className=" h-auto mt-8">
+      <section className=" h-auto ">
         <div className="grid grid-flow-row md:grid-flow-col md:grid-cols-6">
           <div className="md:col-span-2 md:flex md:flex-col md:items-start md:justify-center">
             <div>
@@ -284,15 +288,20 @@ export default function PlatformPage() {
             </div>
             <div>
               <h3 className="text-huros-1">PUBLIC ROUND ONE</h3>
-              <p>USD .10/$MINS</p>
+              <p>USD 0.10/$MINS</p>
             </div>
             <div>
               <h3 className="text-huros-1">LOCK-UP SCHEDULE</h3>
               <p>1 YEAR with quarterly vest of 25% upon token launch</p>
             </div>
           </div>
-          <div className="md:col-span-4 w-full flex items-center justify-center">
-            <Doughnut ref={chartRef} data={doughnutData} options={config} className="w-full h-full" />
+          <div className="md:col-span-4 w-full flex items-center  justify-end">
+            <Doughnut
+              ref={chartRef}
+              data={doughnutData}
+              options={config}
+              className=" max-h-[28rem] max-w-[28rem]"
+            />
           </div>
         </div>
       </section>

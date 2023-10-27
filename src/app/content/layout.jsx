@@ -110,11 +110,11 @@ export default function Layout({ children }) {
             </section>
           </nav>
         </header>
-        <main className=" px-8 py-8 md:px-16 md:py-16 min-h-fit  border-gray-700">
+        <main className=" px-8 pb-8 md:px-16 md:py-8  border-gray-700 ">
           {children}
         </main>
-        <footer className=" h-48">
-          <div className="px-16 md:px-32 flex flex-col justify-center bg-huros-bg-gray-1 text-white h-full">
+        <footer className=" bg-huros-bg-gray-1">
+          <div className="px-16 md:px-32 flex flex-col justify-center text-white h-48 ">
             <div className="text-white flex justify-center item-center h-10">
               <a
                 href="https://discord.com/invite/UNJfhU3JVP"

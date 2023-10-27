@@ -128,7 +128,7 @@ export default function AboutPage() {
       </section>
 
       <section
-        className={`flex flex-col justify-center items-start gap-20 md:flex-row md:gap-y-0 ${
+        className={`flex flex-col justify-center items-start gap-20 md:flex-row md:gap-y-0 h-screen ${
           interestFormOverlay ? " overflow-hidden" : ""
         }`}
       >
