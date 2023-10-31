@@ -2,19 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./page.module.css";
-import hurosLogo from "public/HUROS_Logo.svg";
-import twitterXIcon from "public/X_svg.svg";
-import discordIcon from "public/Discord_svg.svg";
-import linkedInIcon from "public/Linkedin_svg.svg";
+import hurosLogo from "public/logos/logo-huros.svg";
+import twitterXIcon from "public/logos/logo-x.svg";
+import discordIcon from "public/logos/logo-discord.svg";
+import linkedInIcon from "public/logos/logo-linkedin.svg";
 
 export default function Home() {
   return (
-    <div className="md:h-screen ">
+    <div className="md:h-screen">
         <section className=" absolute md:h-screen z-20 bg-gradient-to-b from-huros-bg-gray-1 from-25% to-huros-bg-gray-1 to-80% via-transparent via-50%">
           <header className=" h-56 md:h-2/6">
             <div className=" flex item-center justify-center w-full relative  h-full">
               <Image
-                src="/HUROS_Logo.svg"
+                src={hurosLogo}
                 fill
                 alt="Huros Logo"
                 quality={50}

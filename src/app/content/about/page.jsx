@@ -4,11 +4,13 @@ import {
   experimental_useFormStatus as useFormStatus,
   experimental_useFormState as useFormState,
 } from "react-dom";
+import Image from "next/image";
 
 import styles from "./page.module.css";
 import { useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { submitInterest } from "./actions";
+import logoAceSg from "public/logos/logo-acesg.png"
 
 export default function AboutPage() {
   const [interestFormOverlay, setInterestFormOverlay] = useState(false);
@@ -29,7 +31,7 @@ export default function AboutPage() {
   }, [interestFormState]);
 
   return (
-    <>
+    <div>
       <section
         className={`${styles.overlay} ${
           interestFormOverlay ? "block" : "hidden"
@@ -127,8 +129,9 @@ export default function AboutPage() {
         </form>
       </section>
 
+      <div className="min-h-screen">
       <section
-        className={`flex flex-col justify-center items-start gap-20 md:flex-row md:gap-y-0 h-screen ${
+        className={`flex flex-col justify-center items-start gap-20 md:flex-row md:gap-y-0 mb-14  ${
           interestFormOverlay ? " overflow-hidden" : ""
         }`}
       >
@@ -180,7 +183,15 @@ export default function AboutPage() {
           </div>
         </section>
       </section>
-    </>
+      {/* <section>
+        <h2 className=" text-huros-1 mb-14">Supported By</h2>
+        <div>
+          <Image src={logoAceSg} className=" w-52 "/>
+        </div>
+      </section> */}
+      </div>
+
+    </div>
   );
 }
 

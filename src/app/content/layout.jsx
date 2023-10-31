@@ -7,10 +7,10 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Cross as Hamburger } from "hamburger-react";
 
-import twitterXIcon from "public/X_svg.svg";
-import discordIcon from "public/Discord_svg.svg";
-import linkedInIcon from "public/Linkedin_svg.svg";
-import HurosLogo from "public/HUROS_Logo.svg";
+import twitterXIcon from "public/logos/logo-x.svg";
+import discordIcon from "public/logos/logo-discord.svg";
+import linkedInIcon from "public/logos/logo-linkedin.svg";
+import HurosLogo from "public/logos/logo-huros.svg";
 import styles from "./layout.module.css";
 
 export default function Layout({ children }) {
@@ -110,7 +110,7 @@ export default function Layout({ children }) {
             </section>
           </nav>
         </header>
-        <main className=" px-8 pb-8 md:px-16 md:py-8  border-gray-700 ">
+        <main className=" px-8 py-8 md:px-16 md:py-8  border-gray-700 ">
           {children}
         </main>
         <footer className=" bg-huros-bg-gray-1">
