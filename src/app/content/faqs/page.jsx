@@ -320,46 +320,46 @@ const faqs = [
       },
     ],
   },
-  {
-    header: "$MINS Token",
-    qnas: [
-      {
-        question: `What are the $MINS token?`,
-        answer: (
-          <p>
-            $MINS is the native utility token of the Huros ecosystem. It is used
-            for transactions, governance, and accessing exclusive features and
-            services on the platform.
-          </p>
-        ),
-      },
-      {
-        question: `How do I acquire $MINS tokens?`,
-        answer: (
-          <p>
-            You can acquire $MINS tokens through:
-            <ol>
-              <li>1. Participating in our pre-sale.</li>
-              <br />
-              <li>
-                2. Trading on supported cryptocurrency exchanges when we are
-                listed.
-              </li>
-              <br />
-              <li>
-                3. Earning them through our community events and governance
-                participation.
-              </li>
-              <br />
-              <li>
-                4. Other means that will be announced via our social media.
-              </li>
-            </ol>
-          </p>
-        ),
-      },
-    ],
-  },
+  // {
+  //   header: "$MINS Token",
+  //   qnas: [
+  //     {
+  //       question: `What are the $MINS token?`,
+  //       answer: (
+  //         <p>
+  //           $MINS is the native utility token of the Huros ecosystem. It is used
+  //           for transactions, governance, and accessing exclusive features and
+  //           services on the platform.
+  //         </p>
+  //       ),
+  //     },
+  //     {
+  //       question: `How do I acquire $MINS tokens?`,
+  //       answer: (
+  //         <p>
+  //           You can acquire $MINS tokens through:
+  //           <ol>
+  //             <li>1. Participating in our pre-sale.</li>
+  //             <br />
+  //             <li>
+  //               2. Trading on supported cryptocurrency exchanges when we are
+  //               listed.
+  //             </li>
+  //             <br />
+  //             <li>
+  //               3. Earning them through our community events and governance
+  //               participation.
+  //             </li>
+  //             <br />
+  //             <li>
+  //               4. Other means that will be announced via our social media.
+  //             </li>
+  //           </ol>
+  //         </p>
+  //       ),
+  //     },
+  //   ],
+  // },
   {
     header: "Security and Trust",
     qnas: [
@@ -447,7 +447,7 @@ const faqs = [
         question: `How does community voting work?`,
         answer: (
           <p>
-            Owners of Eons and $MINS have certain voting rights on various
+            Owners of Eons have certain voting rights on various
             governance proposals or for decisions relating to portfolio
             management, enabling community-driven development.
           </p>

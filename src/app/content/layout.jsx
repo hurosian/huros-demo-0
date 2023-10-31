@@ -40,7 +40,7 @@ export default function Layout({ children }) {
   }, [pathname]);
 
   return (
-      <div className=" bg-huros-bg-gray-1 bg-opacity-80">
+      <div className=" bg-huros-bg-gray-1 bg-opacity-90">
         <header className="">
           <div className="h-32 md:h-48 flex item-center justify-center w-full relative">
             <Link href="/">
@@ -115,7 +115,7 @@ export default function Layout({ children }) {
         </main>
         <footer className=" bg-huros-bg-gray-1">
           <div className="px-16 md:px-32 flex flex-col justify-center text-white h-48 ">
-            <div className="text-white flex justify-center item-center h-10">
+            <div className="text-white flex justify-center item-center h-10 mb-2">
               <a
                 href="https://discord.com/invite/UNJfhU3JVP"
                 target="_blank"

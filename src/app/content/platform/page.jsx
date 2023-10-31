@@ -179,9 +179,9 @@ export default function PlatformPage() {
                 className="absolute inset-0 w-full h-full bg-fit bg-[center_bottom_50rem]"
                 style={{ backgroundImage: `url(${bgWatch1.src})` }}
               />
-              <div className="absolute inset-0 w-full h-full bg-gray-900 bg-opacity-80" />
-              <div className="absolute inset-0 w-full h-full py-10 z-20">
-                <h2 className="text-center text-huros-1 mb-10 h-36">
+              <div className="absolute inset-0 w-full h-full bg-black bg-opacity-80" />
+              <div className="absolute inset-0 w-full h-full py-32 z-20">
+                <h2 className="text-center text-huros-1 h-36">
                   Co-ownership
                 </h2>
                 <p className=" px-4 text-center">
@@ -198,9 +198,9 @@ export default function PlatformPage() {
                 className="absolute inset-0 w-full h-full bg-fit bg-[center_bottom_50rem]"
                 style={{ backgroundImage: `url(${bgWatch2.src})` }}
               />
-              <div className="absolute inset-0 w-full h-full bg-gray-900 bg-opacity-80" />
-              <div className="absolute inset-0 w-full h-full py-10 z-20">
-                <h2 className="text-center text-huros-1 mb-10 h-36">
+              <div className="absolute inset-0 w-full h-full bg-black bg-opacity-80" />
+              <div className="absolute inset-0 w-full h-full py-32 z-20">
+                <h2 className="text-center text-huros-1 h-36 ">
                   Community Ownership
                 </h2>
                 <p className="px-4 text-center">
@@ -219,9 +219,9 @@ export default function PlatformPage() {
                 className="absolute inset-0 w-full h-full bg-fit bg-[center_bottom_0rem]"
                 style={{ backgroundImage: `url(${bgWatch3.src})` }}
               />
-              <div className="absolute inset-0 w-full h-full bg-gray-900 bg-opacity-80" />
-              <div className="absolute inset-0 w-full h-full py-10 z-20">
-                <h2 className="text-center text-huros-1 mb-10 h-36">
+              <div className="absolute inset-0 w-full h-full bg-black bg-opacity-80" />
+              <div className="absolute inset-0 w-full h-full py-32 z-20">
+                <h2 className="text-center text-huros-1 h-36">
                   Outright Ownership
                 </h2>
                 <p className="px-4 text-center">

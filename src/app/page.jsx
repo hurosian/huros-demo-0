@@ -10,8 +10,8 @@ import linkedInIcon from "public/logos/logo-linkedin.svg";
 export default function Home() {
   return (
     <div className="md:h-screen">
-        <section className=" absolute md:h-screen z-20 bg-gradient-to-b from-huros-bg-gray-1 from-25% to-huros-bg-gray-1 to-80% via-transparent via-50%">
-          <header className=" h-56 md:h-2/6">
+        <section className=" absolute md:h-screen z-20 bg-black bg-opacity-50 bg-gradient-to-b from-huros-bg-gray-1 from-25% to-huros-bg-gray-1 to-80% via-transparent via-50%">
+          <header className=" h-56 md:h-1/4">
             <div className=" flex item-center justify-center w-full relative  h-full">
               <Image
                 src={hurosLogo}
@@ -23,7 +23,7 @@ export default function Home() {
               />
             </div>
           </header>
-          <main className="py-8 h-fit md:h-3/6 md:my-0">
+          <main className="py-8 h-fit md:h-1/2 md:my-0">
             <div className={`${styles.titleGrid}`}>
               <Link href="./content/about">
                 <h3 className={` ${styles.title}`}>ABOUT</h3>
@@ -43,9 +43,9 @@ export default function Home() {
               </Link>
             </div>
           </main>
-          <footer className="h-fit md:h-1/6">
+          <footer className="h-fit md:h-1/4">
             <div className=" px-16 md:px-32 flex flex-col justify-center text-white h-full">
-              <div className="text-white flex justify-center item-center h-10">
+              <div className="text-white flex justify-center item-center h-10 mb-2">
                 <a
                   href="https://discord.com/invite/UNJfhU3JVP"
                   target="_blank"

@@ -37,8 +37,7 @@ export default function TimelinePage() {
           <div>
             <h3 className="mb-1 text-huros-1">PRODUCT</h3>
             <div>
-              <p>Pre-sales</p>
-              <p>$MINS token development</p>
+              <p>MVP Development</p>
             </div>
           </div>
           <div>
@@ -52,13 +51,12 @@ export default function TimelinePage() {
             <h3 className="mb-1 text-huros-1">OPERATIONS</h3>
             <div>
               <p>Expansion of partnerships verticals</p>
-              <p>Vault fabrication</p>
             </div>
           </div>
           <div>
             <h3 className="mb-1 text-huros-1">PRODUCT</h3>
             <div>
-              <p>$MINS token launch</p>
+            <p>$MINS token development</p>
               <p>Launch of MVP</p>
               <p>Development of mobile app</p>
             </div>
@@ -80,6 +78,7 @@ export default function TimelinePage() {
           <div>
             <h3 className="mb-1 text-huros-1">PRODUCT</h3>
             <div>
+            <p>$MINS token launch</p>
               <p>Official launch</p>
               <p>Development of new features</p>
             </div>
@@ -95,6 +94,7 @@ export default function TimelinePage() {
             <h3 className="mb-1 text-huros-1">OPERATIONS</h3>
             <div>
               <p>Partnerships with brands</p>
+              <p>Vault fabrication</p>
             </div>
           </div>
           <div>

@@ -37,17 +37,12 @@ export default function AboutPage() {
           interestFormOverlay ? "block" : "hidden"
         } scrollbar`}
       >
-        {interestFormState?.type == "success" ? (
-          <h1>Registration Complete!</h1>
-        ) : (
-          <></>
-        )}
         <form className="" action={interestFormAction}>
           <div className=" flex flex-row mb-14">
             <h3 className="flex-grow">Interest Registration</h3>
             <div className=" flex-grow items-center">
               <XMarkIcon
-                className=" w-10 h-10  float-right"
+                className=" w-10 h-10  float-right stroke-huros-bg-gold-1"
                 color="white"
                 onClick={() => changeOverlayState()}
               />
