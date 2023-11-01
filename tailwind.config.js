@@ -17,6 +17,7 @@ module.exports = {
         'huros-bg-gray-1' : "#010100",
         'huros-h2' : "#B49A5B", //Deprecating
         'huros-1': "#B49A5B",
+        'huros-2': "#0f1f2f",
         'huros-11': "#675733" 
       },
       rotate: {
