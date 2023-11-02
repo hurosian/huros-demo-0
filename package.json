@@ -20,10 +20,10 @@
     "googleapis": "^127.0.0",
     "hamburger-react": "^2.5.0",
     "lucide-react": "^0.286.0",
-    "next": "latest",
-    "react": "latest",
+    "next": "^14.0.1",
+    "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
-    "react-dom": "latest",
+    "react-dom": "^18.2.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.4"
@@ -32,7 +32,7 @@
     "autoprefixer": "latest",
     "encoding": "^0.1.13",
     "eslint": "latest",
-    "eslint-config-next": "latest",
+    "eslint-config-next": "^14.0.1",
     "postcss": "latest",
     "tailwindcss": "latest"
   }
