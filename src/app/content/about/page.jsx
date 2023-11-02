@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import {
-  experimental_useFormStatus as useFormStatus,
-  experimental_useFormState as useFormState,
+  useFormStatus,
+  useFormState,
 } from "react-dom";
 import Image from "next/image";
 
