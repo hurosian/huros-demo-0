@@ -110,11 +110,14 @@ h3 {
   font-family: 'Athens';
   @apply text-3xl text-gray-300 leading-snug font-black;
 }
-/* 
+
 h4 {
-  font-family: 'Avenir';
-  @apply text-xl text-white;
+  font-family: 'Athens';
+  @apply text-2xl text-white font-black;
 }
+
+/* 
+
 
 h5 {
   font-family: 'Avenir';
