@@ -99,8 +99,8 @@ export default function Overview({}) {
             </p>
           </div>
           <div className=" grid grid-cols-2  gap-2">
-            {data.portfolio.map((item) => (
-              <div className="w-full grid grid-flow-col relative h-32 gap-x-4">
+            {data.portfolio.map((item, index) => (
+              <div className="w-full grid grid-flow-col relative h-32 gap-x-4" key={index}>
                 <div className="relative border border-huros-1  w-20 h-20">
                   <Image
                     src={item.image}
