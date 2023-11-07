@@ -202,6 +202,62 @@ form button:disabled{
   @apply bg-huros-11
 }
 
+/* Form Input Text Style */
+form input[type="email"], input[type="text"] {
+  @apply 
+    border 
+    border-huros-1 
+    border-t-0 
+    border-l-0 
+    border-r-0 
+    w-full 
+    appearance-none 
+    block 
+    bg-transparent 
+    font-thin 
+    leading-tight 
+    text-white 
+    focus:outline-none;
+}
+
+/* Form Input Radio Style */
+form input[type="radio"], .form-radio {
+  @apply 
+    border 
+    border-huros-1 
+    rounded-full 
+    w-4
+    h-4 
+    appearance-none 
+    checked:bg-huros-1;
+}
+
+select {
+  @apply 
+    border 
+    border-huros-1 
+    border-t-0 
+    border-l-0 
+    border-r-0 
+    w-full 
+    appearance-none 
+    block 
+    bg-transparent 
+    font-thin 
+    leading-tight 
+    text-white 
+    focus:outline-none;
+}
+
+select option {
+  @apply 
+    w-full 
+    appearance-none 
+    block 
+    bg-transparent 
+    text-black;
+}
+
 /* feedback styles */
 /* .error {
   @apply 
