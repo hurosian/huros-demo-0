@@ -13,7 +13,7 @@ export default function ApplicationLayout({ children }) {
   return (
     <div className=" bg-black  min-h-screen">
       <header className="">
-        <section className=" h-32 grid grid-flow-col grid-cols-7 border-b border-b-huros-1 relative">
+        <section id="navbar" className=" h-32 grid grid-flow-col grid-cols-7 border-b border-b-huros-1 relative">
           <div className="col-span-1" />
 
           <p className=" m-auto col-span-2">
@@ -40,10 +40,10 @@ export default function ApplicationLayout({ children }) {
           </div>
         </section>
       </header>
-      <section className="min-h-screen py-10 px-10">{children}</section>
+      <div className="min-h-screen py-10 px-10">{children}</div>
       <footer className=" h-56">
         <section className="m-20 h-32 grid grid-flow-col grid-cols-3">
-          <section id="more_information" className=" m-auto">
+          <section id="more-information" className=" m-auto">
             <div className="grid grid-flow-col grid-cols-2">
               <div>
                 <p className=" text-sm">About</p>
@@ -59,7 +59,7 @@ export default function ApplicationLayout({ children }) {
               </div>
             </div>
           </section>
-          <section id="connect_with_us" className="mx-auto">
+          <section id="connect-with-us" className="mx-auto">
             <div className="">
               <p className=" text-sm text-center"> Connect with us</p>
               <div className=" flex flex-row gap-x-3">

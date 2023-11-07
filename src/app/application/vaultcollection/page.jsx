@@ -149,19 +149,19 @@ export default function VaultCollection() {
   };
   return (
     <div>
-      <section id="page_banner" className="relative min-h-fit h-80 mb-16">
+      <section id="page-banner" className="relative mb-16 h-80 min-h-fit">
         <div
-          className="absolute w-full h-full bg-cover"
+          className="absolute h-full w-full bg-cover"
           style={{ backgroundImage: `url(${BgVault.src})` }}
         />
-        <div className="absolute inset-0 w-full h-full bg-black bg-opacity-40" />
-        <div className="absolute inset-0 w-full h-full flex items-center z-20">
+        <div className="absolute inset-0 h-full w-full bg-black bg-opacity-40" />
+        <div className="absolute inset-0 z-20 flex h-full w-full items-center">
           <h2 className="text-huros-1">Huros Vault Collection</h2>
         </div>
       </section>
-      <section id="newest_collection" className="mb-16">
+      <section id="newest-collection" className="mb-16">
         <h3 className=" mb-4">Newest Collection</h3>
-        <div className=" flex flex-row gap-x-10 overflow-x-scroll scrollbar ">
+        <div className=" scrollbar flex flex-row gap-x-10 overflow-x-scroll ">
           {data.newestCollection.map((item) => (
             <NewestWatch
               key={item.id}
@@ -174,16 +174,16 @@ export default function VaultCollection() {
           ))}
         </div>
       </section>
-      <section id="all_watches">
+      <section id="all-watches">
         <div className=" grid grid-cols-10">
-          <section id="watch_filter" className=" col-span-2">
+          <section id="watch-filter" className=" col-span-2">
             <h3 className=" mb-4">All Watches</h3>
             <div className="mb-2">
               <h4 className=" text-huros-1">Sort By</h4>
-              <section id="sort_by" className="mb-2">
+              <section id="sort-by" className="mb-2">
                 <input
                   type="radio"
-                  className=" mr-2 mb-4"
+                  className=" mb-4 mr-2"
                   id="high_to_low"
                   name="sortWatches"
                   value="descending"
@@ -194,7 +194,7 @@ export default function VaultCollection() {
                 <br />
                 <input
                   type="radio"
-                  className=" mr-2  mb-4"
+                  className=" mb-4  mr-2"
                   id="low_to_high"
                   name="sortWatches"
                   value="ascending"
@@ -205,7 +205,7 @@ export default function VaultCollection() {
                 <br />
                 <input
                   type="radio"
-                  className=" mr-2 mb-4"
+                  className=" mb-4 mr-2"
                   id="newest"
                   name="sortWatches"
                   value="newest"
@@ -227,8 +227,8 @@ export default function VaultCollection() {
               </section>
             </div>
           </section>
-          <section id="all_watches_list" className="col-span-8">
-            <div className=" flex flex-row gap-6 max-w-full flex-wrap">
+          <section id="all-watches-list" className="col-span-8">
+            <div className=" flex max-w-full flex-row flex-wrap gap-6">
               {data.watches.map((item) => (
                 <WatchItem
                   key={item.id}
@@ -250,7 +250,7 @@ export default function VaultCollection() {
 function BrandCheckbox({ value, id, label }) {
   return (
     <>
-      <input className="mr-2 mb-3" type="checkbox" value={value} id={id} />
+      <input className="mb-3 mr-2" type="checkbox" value={value} id={id} />
       <label className=" text-white" htmlFor={id}>
         {label}
       </label>
@@ -262,9 +262,9 @@ function BrandCheckbox({ value, id, label }) {
 function WatchItem({ image, name, brand, watchRef, eonPrice }) {
   return (
     <div
-      className={`${styles.hoverable} w-52 h-76 flex flex-col items-center pb-1 cursor-pointer`}
+      className={`${styles.hoverable} h-76 flex w-52 cursor-pointer flex-col items-center pb-1`}
     >
-      <div className="relative w-52 h-52 border border-huros-1 mb-2">
+      <div className="relative mb-2 h-52 w-52 border border-huros-1">
         <Image src={image} fill className=" object-fit p-2" />
       </div>
       <p className="text-md">{name}</p>
@@ -284,9 +284,9 @@ function WatchItem({ image, name, brand, watchRef, eonPrice }) {
 function NewestWatch({ image, name, brand, watchRef, eonPrice }) {
   return (
     <div
-      className={`${styles.hoverable} w-72 h-76 flex flex-col items-center pb-3 cursor-pointer`}
+      className={`${styles.hoverable} h-76 flex w-72 cursor-pointer flex-col items-center pb-3`}
     >
-      <div className="relative w-72 h-72 border border-huros-1 mb-2">
+      <div className="relative mb-2 h-72 w-72 border border-huros-1">
         <Image src={image} fill className=" object-fit p-2" />
       </div>
       <p className="text-md">{name}</p>
