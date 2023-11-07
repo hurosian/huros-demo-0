@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { EnvelopeIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 
 import HurosLogo from "public/logos/logo-huros.svg";
@@ -11,10 +12,14 @@ import LinkedinLogo from "public/logos/logo-linkedin.svg";
 export default function ApplicationLayout({ children }) {
   return (
     <div className=" bg-black  min-h-screen">
-      <header className="mb-20">
+      <header className="">
         <section className=" h-32 grid grid-flow-col grid-cols-7 border-b border-b-huros-1 relative">
           <div className="col-span-1" />
-          <p className=" m-auto col-span-2">Vault Collection</p>
+
+          <p className=" m-auto col-span-2">
+            <Link href={"/application/vaultcollection"}>Vault Collection </Link>
+          </p>
+
           <div className=" h-auto">
             <Image
               src={HurosLogo}
@@ -27,15 +32,18 @@ export default function ApplicationLayout({ children }) {
           <div className="">
             <div className=" h-full m-auto grid grid-flow-col grid-cols-2">
               <EnvelopeIcon className=" m-auto w-10 stroke-huros-1 stroke-1" />
-              <UserCircleIcon className=" m-auto w-10 stroke-huros-1 stroke-1" />
+              
+              <Link className=" m-auto w-10 " href="/application/profile/overview">
+              <UserCircleIcon className="stroke-huros-1 stroke-1" />
+              </Link>
             </div>
           </div>
         </section>
       </header>
-      <section className="h-screen">{children}</section>
+      <section className="min-h-screen py-10 px-10">{children}</section>
       <footer className=" h-56">
         <section className="m-20 h-32 grid grid-flow-col grid-cols-3">
-          <section className=" m-auto">
+          <section id="more_information" className=" m-auto">
             <div className="grid grid-flow-col grid-cols-2">
               <div>
                 <p className=" text-sm">About</p>
@@ -51,7 +59,7 @@ export default function ApplicationLayout({ children }) {
               </div>
             </div>
           </section>
-          <section className="mx-auto">
+          <section id="connect_with_us" className="mx-auto">
             <div className="">
               <p className=" text-sm text-center"> Connect with us</p>
               <div className=" flex flex-row gap-x-3">
@@ -66,7 +74,16 @@ export default function ApplicationLayout({ children }) {
               </div>
             </div>
           </section>
-          <section></section>
+          <section id="huros_logo">
+            <div className=" h-auto">
+              <Image
+                src={HurosLogo}
+                quality={75}
+                alt="Huros Logo"
+                className=" h-32 m-auto"
+              />
+            </div>
+          </section>
         </section>
       </footer>
     </div>
