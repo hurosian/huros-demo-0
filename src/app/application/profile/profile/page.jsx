@@ -216,7 +216,6 @@ export default function Profile({}) {
                   NATIONALITY
                 </h4>
                 <select 
-                  className="border border-huros-1 border-t-0 border-l-0 border-r-0 w-full appearance-none block bg-transparent font-thin leading-tight text-white focus:outline-none"
                   id="nationality"
                   type="text"
                   defaultValue={ nationality || "choose-nationality"}
