@@ -26,11 +26,6 @@ export default function Help({}) {
         <div className="grid grid-cols-2 gap-10">
           <div className="grid w-full grid-rows-5">
             <div>
-              <div>
-                <h4 className="flex justify-end text-slate-300">
-                  REQUIRED FIELD <span> &nbsp; * </span>
-                </h4>
-              </div>
               <h4 className="text-slate-300">TITLE</h4>
 
               <div className="grid grid-cols-4">
@@ -95,7 +90,8 @@ export default function Help({}) {
 
             <div>
               <h4 className="text-slate-300">
-                USERNAME <span> * </span>
+                USERNAME
+                <span className="text-sm text-huros-1"> Required </span>
               </h4>
               <input
                 id="username"
@@ -110,6 +106,7 @@ export default function Help({}) {
               <input
                 id="firstname"
                 type="text"
+                placeholder="First Name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
@@ -120,6 +117,7 @@ export default function Help({}) {
               <input
                 id="lastname"
                 type="text"
+                placeholder="Last Name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
@@ -127,7 +125,8 @@ export default function Help({}) {
 
             <div>
               <h4 className="text-slate-300">
-                EMAIL ADDRESS <span> * </span>
+                EMAIL ADDRESS
+                <span className="text-sm text-huros-1"> Required </span>
               </h4>
               <input
                 id="email"
@@ -157,7 +156,8 @@ export default function Help({}) {
 
             <div className="row-span-2">
               <h4 className="text-slate-300">
-                YOUR MESSAGE <span> * </span>
+                YOUR MESSAGE
+                <span className="text-sm text-huros-1"> Required </span>
               </h4>
               <textarea
                 name="message"
