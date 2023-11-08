@@ -25,7 +25,7 @@ export default function Help({}) {
       <form className="w-full">
         <div className="grid grid-cols-2 gap-10">
           <div className="grid w-full grid-rows-5">
-            <div className="mb-5">
+            <div>
               <div>
                 <h4 className="flex justify-end text-slate-300">
                   REQUIRED FIELD <span> &nbsp; * </span>
@@ -139,7 +139,7 @@ export default function Help({}) {
           </div>
 
           <div className="grid w-full grid-rows-5">
-            <div className="mb-7 row-span-2 w-full place-self-end">
+            <div className="row-span-2 w-full place-self-end pb-2">
               <h4 className="text-slate-300">NATIONALITY</h4>
               <select
                 id="nationality"
@@ -162,7 +162,7 @@ export default function Help({}) {
               <textarea
                 name="message"
                 id="message"
-                rows="5"
+                rows="6"
                 className="block h-fit resize-none border bg-transparent font-thin text-white focus:border-huros-1 focus:ring-huros-1 dark:border-huros-1 dark:bg-transparent dark:placeholder-gray-400 dark:focus:border-huros-1 dark:focus:ring-huros-1"
                 placeholder="Leave your message..."
                 value={message}
