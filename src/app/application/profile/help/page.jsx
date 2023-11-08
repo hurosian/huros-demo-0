@@ -138,7 +138,7 @@ export default function Help({}) {
           </div>
 
           <div className="grid w-full grid-rows-5">
-            <div className="row-span-2 w-full place-self-end pb-2">
+            <div className="row-span-2 w-full place-self-end">
               <h4 className="text-slate-300">NATIONALITY</h4>
               <select
                 id="nationality"
@@ -162,7 +162,7 @@ export default function Help({}) {
               <textarea
                 name="message"
                 id="message"
-                rows="6"
+                rows="5"
                 className="block h-fit resize-none border bg-transparent font-thin text-white focus:border-huros-1 focus:ring-huros-1 dark:border-huros-1 dark:bg-transparent dark:placeholder-gray-400 dark:focus:border-huros-1 dark:focus:ring-huros-1"
                 placeholder="Leave your message..."
                 value={message}
@@ -170,10 +170,10 @@ export default function Help({}) {
               ></textarea>
             </div>
 
-            <div className="flex items-center">
+            <div className="place-self-center w-full">
               <button
                 type="submit"
-                className="mt-1 w-full rounded bg-huros-1 p-2 font-normal text-slate-200"
+                className="w-full rounded bg-huros-1 p-2 font-normal text-slate-200"
               >
                 Save
               </button>
