@@ -139,7 +139,7 @@ export default function Help({}) {
           </div>
 
           <div className="grid w-full grid-rows-5">
-            <div className="row-span-2 w-full place-self-end">
+            <div className="mb-7 row-span-2 w-full place-self-end">
               <h4 className="text-slate-300">NATIONALITY</h4>
               <select
                 id="nationality"
