@@ -29,7 +29,7 @@ export default function Help({}) {
               <h4 className="text-slate-300">TITLE</h4>
 
               <div className="grid grid-cols-4">
-                <div className=" flex items-center">
+                <div className="flex items-center">
                   <input
                     type="radio"
                     className="form-radio"
@@ -43,7 +43,7 @@ export default function Help({}) {
                     Mr
                   </label>
                 </div>
-                <div className=" flex items-center">
+                <div className="flex items-center">
                   <input
                     type="radio"
                     className="form-radio"
@@ -57,7 +57,7 @@ export default function Help({}) {
                     Ms
                   </label>
                 </div>
-                <div className=" flex items-center">
+                <div className="flex items-center">
                   <input
                     type="radio"
                     className="form-radio"
@@ -71,7 +71,7 @@ export default function Help({}) {
                     Mrs
                   </label>
                 </div>
-                <div className=" flex items-center">
+                <div className="flex items-center">
                   <input
                     type="radio"
                     className="form-radio"
