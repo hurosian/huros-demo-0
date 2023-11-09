@@ -312,3 +312,29 @@ select option {
     absolute bottom-0 right-0 
     rounded-tl-md;
 } */
+
+/* unordered list styles */
+ul {
+  font-family: 'Athens';
+}
+
+/* table styles */
+table {
+  font-family: 'Avenir';
+}
+
+table thead {
+  font-family: 'Avenir';
+  @apply 
+    font-extrabold
+}
+
+table thead th {
+  min-width: 13.33%;
+}
+
+table tbody {
+  @apply 
+    font-thin
+    text-slate-300;
+}
