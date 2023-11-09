@@ -3,6 +3,18 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useTimer } from "react-timer-hook";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineController,
+  LineElement,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 
 import bgNautilus from "public/demo/backgrounds/bg-nautilus.png";
 import styles from "./page.module.css";
@@ -66,11 +78,91 @@ export default function VaultCollectionListing({ params }) {
     ],
   };
 
-  const orderUiState = {
-    ownershipInfo: "ownershipInfo",
-    placeOrder: "placeOrder",
-    completeOrder: "completeOrder",
+  const pageUiStates = {
+    overview: {
+      value: "overview",
+      ownershipInfo: "ownershipInfo",
+      placeOrder: "placeOrder",
+      completeOrder: "completeOrder",
+    },
+    priceHistory: {
+      value: "priceHistory",
+      oneMonth: "oneMonth",
+      threeMonth: "threeMonth",
+      sixMonth: "sixMonth",
+      oneYear: "oneYear",
+      threeYear: "threeYear",
+      fiveYear: "fiveYear",
+    },
   };
+
+  const lineData = {
+    labels: [
+      "Jun",
+      "",
+      "",
+      "Jul",
+      "",
+      "",
+      "Aug",
+      "",
+      "",
+      "Sep",
+      "",
+      "",
+      "Oct",
+      "",
+      "",
+      "Nov",
+      "",
+      "",
+    ],
+    datasets: [
+      {
+        id: 1,
+        label: "",
+        data: [
+          1045, 1102, 1045, 1137, 1085, 1148, 1228, 1163, 1255,
+          1186, 1270, 1045, 1089, 1110, 1125, 1056,
+          1137, 1221, 1288,
+        ],
+      },
+    ],
+  };
+
+  const lineOptions = {
+    borderColor: "#B49A5B",
+    backgroundColor: "#B49A5B",
+    color: "white",
+    plugins: {
+      legend: false
+    },
+    scales: {
+      y: {
+        border: {
+          display: false
+        },
+        grid: {
+          color: "#FFFFFF60"
+          },
+          ticks: {
+            color: "white"
+          }
+    },
+    x: {
+      border: {
+        display: false
+      },
+      grid: {
+        color: "#B49A5B00"
+        },
+        ticks: {
+          color: "white"
+        }
+  },
+  }
+    
+  }
 
   const [blockchainData, setBlockchainData] = useState({
     owners: [],
@@ -79,10 +171,15 @@ export default function VaultCollectionListing({ params }) {
     eonsAvailable: 100,
     eonsLeft: 100,
   });
-  const [oraclePrice, setOraclePrice] = useState(blockchainData.eonPrice)
-  const [listingPurchaseState, setListingPurchaseState] = useState(
-    orderUiState.ownershipInfo,
+  const [oraclePrice, setOraclePrice] = useState(blockchainData.eonPrice);
+  const [priceHistoryUiState, setPriceHistoryUiState] = useState(
+    pageUiStates.priceHistory.threeMonth,
   );
+  const [overviewUiState, setOverviewUiState] = useState(
+    pageUiStates.overview.ownershipInfo,
+  );
+  const [ownershipPriceHistoryUiState, setOwnershipPriceHistoryUiState] =
+    useState(pageUiStates.overview.value);
   const [eonsAmountInput, setEonAmountInput] = useState(0);
 
   const {
@@ -102,6 +199,18 @@ export default function VaultCollectionListing({ params }) {
   });
 
   useEffect(() => {
+    ChartJS.register(
+      ArcElement,
+      Tooltip,
+      Legend,
+      CategoryScale,
+      LinearScale,
+      PointElement,
+      LineElement,
+    );
+    restart(new Date().setSeconds(new Date().getSeconds() + 10));
+  }, []);
+  useEffect(() => {
     if (isRunning) {
       return;
     }
@@ -112,20 +221,52 @@ export default function VaultCollectionListing({ params }) {
       priceChange += oraclePrice * 0.06;
     }
     let newPrice = oraclePrice + priceChange;
-    setOraclePrice(newPrice)
+    setOraclePrice(newPrice);
     restart(new Date().setSeconds(new Date().getSeconds() + 10));
   }, [isRunning]);
 
-  const changeListingPurchaseUi = () => {
-    switch (listingPurchaseState) {
-      case orderUiState.ownershipInfo:
+  const changePageUi = () => {
+    switch (ownershipPriceHistoryUiState) {
+      case pageUiStates.overview.value:
+        return changeOverviewUi();
+      case pageUiStates.priceHistory.value:
+        return changePriceHistoryUi();
+    }
+  };
+
+  const changePriceHistoryUi = () => {
+    switch (priceHistoryUiState) {
+      case pageUiStates.priceHistory.threeMonth:
+        return (
+          <>
+            <div className="">
+              <div className="grid grid-flow-col grid-cols-6">
+                <p className=" opacity-30 font-bold">1M</p>
+                <p className=" opacity-30 font-bold">3M</p>
+                <p className=" text-huros-1 underline font-bold">6M</p>
+                <p className=" opacity-30 font-bold">1Y</p>
+                <p className=" opacity-30 font-bold">3Y</p>
+                <p className=" opacity-30 font-bold">6Y</p>
+              </div>
+            <Line datasetIdKey="id" data={lineData} options={lineOptions} />
+            </div>
+          </>
+        );
+    }
+  };
+
+  const changeOverviewUi = () => {
+    switch (overviewUiState) {
+      case pageUiStates.overview.ownershipInfo:
         return (
           <>
             <p className=" mb-14 text-3xl font-bold">Ownership Info</p>
             <p className=" mb-14 text-sm">Be the first to own this watch!</p>
             <button
               className=" mb-2 block h-14 w-full rounded-sm bg-huros-1 px-6"
-              onClick={() => setListingPurchaseState(orderUiState.placeOrder)}
+              onClick={() =>
+                setOverviewUiState(pageUiStates.overview.placeOrder)
+              }
             >
               <p className=" font-bold text-black">Buy Eons</p>
             </button>
@@ -140,7 +281,7 @@ export default function VaultCollectionListing({ params }) {
             </button>
           </>
         );
-      case orderUiState.placeOrder:
+      case pageUiStates.overview.placeOrder:
         return (
           <>
             <p className=" mb-14 text-3xl font-bold">Place your Order</p>
@@ -162,7 +303,7 @@ export default function VaultCollectionListing({ params }) {
             <button
               className=" mb-2 block h-14 w-full rounded-sm bg-huros-1 px-6 disabled:bg-huros-11"
               onClick={() =>
-                setListingPurchaseState(orderUiState.completeOrder)
+                setOverviewUiState(pageUiStates.overview.completeOrder)
               }
               disabled={eonsAmountInput == 0}
             >
@@ -171,7 +312,7 @@ export default function VaultCollectionListing({ params }) {
           </>
         );
 
-      case orderUiState.completeOrder:
+      case pageUiStates.overview.completeOrder:
         return (
           <>
             <>
@@ -207,10 +348,16 @@ export default function VaultCollectionListing({ params }) {
       >
         <section
           id="watch-image"
-          className=" flex aspect-square h-2/3 flex-col items-center border border-huros-1"
+          className=" flex aspect-square h-3/4 flex-col items-center border border-huros-1"
         >
           <div className=" relative aspect-square h-5/6">
-            <Image src={data.watch.image} fill className=" object-contain" />
+            <Image
+              src={data.watch.image}
+              fill
+              className=" object-contain"
+              quality={50}
+              alt={data.watch.name}
+            />
           </div>
           <div className=" flex h-1/6 flex-row items-center gap-x-3">
             <div className="h-4 w-4 rounded-full bg-huros-1" />
@@ -264,18 +411,42 @@ export default function VaultCollectionListing({ params }) {
                   Refreshes in {hours}:{minutes}:{seconds}
                 </p>
                 <button
-                  className=" block h-14 w-full rounded-sm bg-huros-1 px-6"
+                  className=" block h-8 w-full rounded-sm bg-huros-1 px-2"
                   onClick={() =>
-                    restart(new Date().setSeconds(new Date().getSeconds() + 0.5))
+                    restart(
+                      new Date().setSeconds(new Date().getSeconds() + 0.5),
+                    )
                   }
                 >
-                  <p className=" font-bold leading-5 text-black">Rerun Timer</p>
+                  <p className=" font-bold leading-5 text-black text-sm">Rerun Timer</p>
                 </button>
               </div>
             </div>
           </div>
-          <div className=" row-span-2 m-auto h-full w-full">
-            {changeListingPurchaseUi()}
+          <div className=" z-20 row-span-2">
+            <div className="grid grid-flow-col grid-cols-3 gap-x-4 mb-4">
+              <button
+                onClick={() =>
+                  setOwnershipPriceHistoryUiState(pageUiStates.overview.value)
+                }
+                className={ownershipPriceHistoryUiState === pageUiStates.overview.value ? " border border-huros-1 rounded-md" : null}
+              >
+                <p className={` ${ownershipPriceHistoryUiState === pageUiStates.overview.value ? " text-huros-1 font-bold" : null}`}>Overview</p>
+              </button>
+              <button
+                onClick={() =>
+                  setOwnershipPriceHistoryUiState(
+                    pageUiStates.priceHistory.value,
+                  )
+                }
+                className={ownershipPriceHistoryUiState === pageUiStates.priceHistory.value ? " border border-huros-1 rounded-md" : null}
+              >
+                <p className={` ${ownershipPriceHistoryUiState === pageUiStates.priceHistory.value ? " text-huros-1 font-bold" : null}`}>Price History</p>
+              </button>
+            </div>
+            <div className=" row-span-2 m-auto h-full w-full">
+              {changePageUi()}
+            </div>
           </div>
         </section>
       </section>
@@ -335,7 +506,13 @@ export default function VaultCollectionListing({ params }) {
       </section>
       <section id="watch-image-banner" className="mb-14">
         <div className=" relative -mx-9 h-[40rem] w-auto">
-          <Image src={bgNautilus} fill className=" object-cover" />
+          <Image
+            src={bgNautilus}
+            fill
+            quality={50}
+            className=" object-cover"
+            alt="Nautilus banner"
+          />
         </div>
       </section>
       <section
@@ -370,7 +547,12 @@ function NewestWatch({ image, name, brand, watchRef, eonPrice, watchId }) {
       className={`${styles.hoverable} h-76 flex w-72 cursor-pointer flex-col items-center pb-3`}
     >
       <div className="relative mb-2 h-72 w-72 border border-huros-1">
-        <Image src={image} fill className=" object-fit p-2" />
+        <Image
+          src={image}
+          fill
+          className=" object-fit p-2"
+          alt={brand + " " + name}
+        />
       </div>
       <p className="text-md">{name}</p>
       <p className="text-sm">{brand}</p>
