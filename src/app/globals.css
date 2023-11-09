@@ -336,5 +336,10 @@ table thead th {
 table tbody {
   @apply 
     font-thin
+label {
+  font-family: "Avenir";
+  
+  @apply
+    text-center
     text-slate-300;
 }
