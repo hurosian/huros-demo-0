@@ -203,7 +203,7 @@ form button:disabled{
 }
 
 /* Form Input Text Style */
-form input[type="email"], input[type="text"] {
+form input[type="email"], input[type="text"], input[type="number"] {
   @apply 
     border 
     border-huros-1 

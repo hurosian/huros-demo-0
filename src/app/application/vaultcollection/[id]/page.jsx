@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { useTimer } from "react-timer-hook";
 
 import bgNautilus from "public/demo/backgrounds/bg-nautilus.png";
 import styles from "./page.module.css";
@@ -63,13 +65,140 @@ export default function VaultCollectionListing({ params }) {
       },
     ],
   };
-  const blockchainData = {
+
+  const orderUiState = {
+    ownershipInfo: "ownershipInfo",
+    placeOrder: "placeOrder",
+    completeOrder: "completeOrder",
+  };
+
+  const [blockchainData, setBlockchainData] = useState({
     owners: [],
     originalListPrice: 104500.0,
     eonPrice: 1045.0,
     eonsAvailable: 100,
     eonsLeft: 100,
+  });
+  const [oraclePrice, setOraclePrice] = useState(blockchainData.eonPrice)
+  const [listingPurchaseState, setListingPurchaseState] = useState(
+    orderUiState.ownershipInfo,
+  );
+  const [eonsAmountInput, setEonAmountInput] = useState(0);
+
+  const {
+    totalSeconds,
+    seconds,
+    minutes,
+    hours,
+    days,
+    isRunning,
+    start,
+    pause,
+    resume,
+    restart,
+  } = useTimer({
+    autoStart: true,
+    expiryTimestamp: new Date().setSeconds() + Math.random() * 30,
+  });
+
+  useEffect(() => {
+    if (isRunning) {
+      return;
+    }
+    let priceChange = 0;
+    if (Math.random() > 0.5) {
+      priceChange -= oraclePrice * 0.06;
+    } else {
+      priceChange += oraclePrice * 0.06;
+    }
+    let newPrice = oraclePrice + priceChange;
+    setOraclePrice(newPrice)
+    restart(new Date().setSeconds(new Date().getSeconds() + 10));
+  }, [isRunning]);
+
+  const changeListingPurchaseUi = () => {
+    switch (listingPurchaseState) {
+      case orderUiState.ownershipInfo:
+        return (
+          <>
+            <p className=" mb-14 text-3xl font-bold">Ownership Info</p>
+            <p className=" mb-14 text-sm">Be the first to own this watch!</p>
+            <button
+              className=" mb-2 block h-14 w-full rounded-sm bg-huros-1 px-6"
+              onClick={() => setListingPurchaseState(orderUiState.placeOrder)}
+            >
+              <p className=" font-bold text-black">Buy Eons</p>
+            </button>
+            <button className=" block h-14 w-full rounded-sm bg-huros-1 px-6">
+              <p className=" font-bold leading-5 text-black">
+                Own at <span className="text-sm">USD</span>
+                {blockchainData.originalListPrice}*
+              </p>
+              <p className=" text-xs text-black">
+                price may increase due to service fees
+              </p>
+            </button>
+          </>
+        );
+      case orderUiState.placeOrder:
+        return (
+          <>
+            <p className=" mb-14 text-3xl font-bold">Place your Order</p>
+            <p className=" mb-4">Eons</p>
+            <div className="mb-14 grid grid-flow-col grid-cols-3">
+              <input
+                type="number"
+                max={100}
+                min={1}
+                placeholder="Amount"
+                onChange={(e) => setEonAmountInput(e.target.value)}
+              />
+              <div />
+              <p>
+                <span className="text-sm">USD</span>{" "}
+                {(() => eonsAmountInput * blockchainData.eonPrice)()}{" "}
+              </p>
+            </div>
+            <button
+              className=" mb-2 block h-14 w-full rounded-sm bg-huros-1 px-6 disabled:bg-huros-11"
+              onClick={() =>
+                setListingPurchaseState(orderUiState.completeOrder)
+              }
+              disabled={eonsAmountInput == 0}
+            >
+              <p className=" font-bold text-black">Confirm</p>
+            </button>
+          </>
+        );
+
+      case orderUiState.completeOrder:
+        return (
+          <>
+            <>
+              <p className=" mb-14 text-4xl font-black">
+                Your Order has been placed
+              </p>
+              <p className=" mb-14">
+                You may track your order on Polygonscan.
+                <br />
+                <br />
+                Your order may take a few minutes to reflect in your wallet. You
+                will receive an alert when the transaction is complete.
+              </p>
+              <Link
+                href="/application/vaultcollection"
+                className=" mb-2 flex h-14 w-full items-center justify-center rounded-sm bg-huros-1 px-6 "
+              >
+                <p className=" self-center text-center font-bold text-black">
+                  Back to the vault
+                </p>
+              </Link>
+            </>
+          </>
+        );
+    }
   };
+
   return (
     <div>
       <section
@@ -78,7 +207,7 @@ export default function VaultCollectionListing({ params }) {
       >
         <section
           id="watch-image"
-          className=" flex aspect-square h-full flex-col items-center border border-huros-1"
+          className=" flex aspect-square h-2/3 flex-col items-center border border-huros-1"
         >
           <div className=" relative aspect-square h-5/6">
             <Image src={data.watch.image} fill className=" object-contain" />
@@ -91,43 +220,63 @@ export default function VaultCollectionListing({ params }) {
             <div className="h-4 w-4 rounded-full border border-huros-1" />
           </div>
         </section>
-        <section id="watch-pricing" className=" m-auto w-full">
-          <p className=" text-4xl font-bold">
-            {data.watch.brand} {data.watch.name}
-          </p>
-          <p className=" mb-4 text-3xl">Ref: {data.watch.ref}</p>
-          <div className=" flex justify-between">
-            <p>Original List Price</p>
-            <p>{blockchainData.originalListPrice.toFixed(2)}</p>
-          </div>
-          <div className=" flex justify-between">
-            <p>Per Eon Price</p>
-            <p>{blockchainData.eonPrice.toFixed(2)}</p>
-          </div>
-          <div className=" mb-4 flex justify-between">
-            <p>Available Eons</p>
-            <p>
-              {blockchainData.eonsLeft}
-              <span className=" text-xs opacity-50">
-                {" "}
-                / {blockchainData.eonsAvailable}{" "}
-              </span>
+        <section
+          id="watch-pricing"
+          className=" m-auto grid w-full  grid-flow-row grid-rows-3 gap-y-3"
+        >
+          <div>
+            <p className=" text-4xl font-bold">
+              {data.watch.brand} {data.watch.name}
             </p>
+            <p className=" mb-4 text-3xl">Ref: {data.watch.ref}</p>
+            <div className=" flex justify-between">
+              <p>Original List Price</p>
+              <p>
+                <span className=" text-sm">USD</span>
+                {blockchainData.originalListPrice.toFixed(2)}
+              </p>
+            </div>
+            <div className=" flex justify-between">
+              <p>Per Eon Price</p>
+              <p>
+                <span className=" text-sm">USD</span>
+                {blockchainData.eonPrice.toFixed(2)}
+              </p>
+            </div>
+            <div className=" mb-4 flex justify-between">
+              <p>Available Eons</p>
+              <p>
+                {blockchainData.eonsLeft}
+                <span className=" text-xs opacity-50">
+                  {" "}
+                  / {blockchainData.eonsAvailable}{" "}
+                </span>
+              </p>
+            </div>
+            <div className=" mb-4 flex justify-between">
+              <p className=" font-bold text-huros-1">ORACLE SUGGESTED PRICE</p>
+              <div className=" flex flex-col items-end">
+                <p className=" font-bold text-huros-1">
+                  <span className=" text-sm">USD</span>
+                  {oraclePrice.toFixed(2)}
+                </p>
+                <p className=" text-sm text-huros-1">
+                  Refreshes in {hours}:{minutes}:{seconds}
+                </p>
+                <button
+                  className=" block h-14 w-full rounded-sm bg-huros-1 px-6"
+                  onClick={() =>
+                    restart(new Date().setSeconds(new Date().getSeconds() + 0.5))
+                  }
+                >
+                  <p className=" font-bold leading-5 text-black">Rerun Timer</p>
+                </button>
+              </div>
+            </div>
           </div>
-          <p className=" mb-14 text-3xl">Ownership Info</p>
-          <p className=" mb-14 text-sm">Be the first to own this watch!</p>
-          <button className=" mb-2 block h-14 w-full rounded-sm bg-huros-1 px-6">
-            <p className=" font-bold text-black">Buy Eons</p>
-          </button>
-          <button className=" block h-14 w-full rounded-sm bg-huros-1 px-6">
-            <p className=" font-bold leading-5 text-black">
-              Own at <span className="text-sm">USD</span>
-              {blockchainData.originalListPrice}*
-            </p>
-            <p className=" text-xs text-black">
-              price may increase due to service fees
-            </p>
-          </button>
+          <div className=" row-span-2 m-auto h-full w-full">
+            {changeListingPurchaseUi()}
+          </div>
         </section>
       </section>
       <section
@@ -195,7 +344,7 @@ export default function VaultCollectionListing({ params }) {
       >
         <h2 className=" mb-8 text-huros-1">Newest Collection</h2>
         <section id="newest-collection" className="flex w-full flex-row">
-          <div className=" scrollbar flex w-full flex-row gap-x-10 overflow-x-scroll px-10 pb-4 ">
+          <div className=" scrollbar flex w-full flex-row gap-x-10 overflow-x-scroll px-1 pb-4 ">
             {data.newestCollection.map((item) => (
               <NewestWatch
                 key={item.id}

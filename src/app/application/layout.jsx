@@ -11,12 +11,15 @@ import LinkedinLogo from "public/logos/logo-linkedin.svg";
 
 export default function ApplicationLayout({ children }) {
   return (
-    <div className=" bg-black  min-h-screen">
+    <div className=" min-h-screen  bg-black">
       <header className="">
-        <section id="navbar" className=" h-32 grid grid-flow-col grid-cols-7 border-b border-b-huros-1 relative">
+        <section
+          id="navbar"
+          className=" relative grid h-32 grid-flow-col grid-cols-7 border-b border-b-huros-1"
+        >
           <div className="col-span-1" />
 
-          <p className=" m-auto col-span-2">
+          <p className=" col-span-2 m-auto">
             <Link href={"/application/vaultcollection"}>Vault Collection </Link>
           </p>
 
@@ -25,24 +28,27 @@ export default function ApplicationLayout({ children }) {
               src={HurosLogo}
               quality={75}
               alt="Huros Logo"
-              className=" h-32 m-auto"
+              className=" m-auto h-32"
             />
           </div>
-          <p className=" m-auto col-span-2">Marketplace</p>
+          <p className=" col-span-2 m-auto">Marketplace</p>
           <div className="">
-            <div className=" h-full m-auto grid grid-flow-col grid-cols-2">
+            <div className=" m-auto grid h-full grid-flow-col grid-cols-2">
               <EnvelopeIcon className=" m-auto w-10 stroke-huros-1 stroke-1" />
-              
-              <Link className=" m-auto w-10 " href="/application/profile/overview">
-              <UserCircleIcon className="stroke-huros-1 stroke-1" />
+
+              <Link
+                className=" m-auto w-10 "
+                href="/application/profile/overview"
+              >
+                <UserCircleIcon className="stroke-huros-1 stroke-1" />
               </Link>
             </div>
           </div>
         </section>
       </header>
-      <div className="min-h-screen py-10 px-10">{children}</div>
+      <div className="min-h-screen px-10 py-10">{children}</div>
       <footer className=" h-56">
-        <section className="m-20 h-32 grid grid-flow-col grid-cols-3">
+        <section className="m-20 grid h-32 grid-flow-col grid-cols-3">
           <section id="more-information" className=" m-auto">
             <div className="grid grid-flow-col grid-cols-2">
               <div>
@@ -61,7 +67,7 @@ export default function ApplicationLayout({ children }) {
           </section>
           <section id="connect-with-us" className="mx-auto">
             <div className="">
-              <p className=" text-sm text-center"> Connect with us</p>
+              <p className=" text-center text-sm"> Connect with us</p>
               <div className=" flex flex-row gap-x-3">
                 <Image src={TwitterXLogo} alt="Twitter" className=" w-10" />
                 <Image src={TelegramLogo} alt="Telegram" className=" w-10" />
@@ -80,7 +86,7 @@ export default function ApplicationLayout({ children }) {
                 src={HurosLogo}
                 quality={75}
                 alt="Huros Logo"
-                className=" h-32 m-auto"
+                className=" m-auto h-32"
               />
             </div>
           </section>
