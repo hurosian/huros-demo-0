@@ -336,6 +336,7 @@ table thead th {
 table tbody {
   @apply 
     font-thin
+    text-slate-300;
 }
 
 label {
