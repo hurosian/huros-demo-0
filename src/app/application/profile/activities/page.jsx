@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const dateStruct = {
   day: "numeric",
@@ -153,14 +153,11 @@ export default function Activities({}) {
 
     if (tabClicked === undefined) {
       setTab(sections.vaultCollection);
+      return;
     }
-
+    
     setTab(sections[tabClicked]);
   };
-
-  useEffect(() => {
-    setTab(sections.vaultCollection);
-  }, []);
 
   return (
     <section id="activities">
