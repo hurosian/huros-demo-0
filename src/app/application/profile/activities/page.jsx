@@ -202,19 +202,19 @@ const ActivityTable = ({ activities, tab, sections }) => {
                 <th className="w-2/12">Series</th>
                 <th className="w-2/12">Brand</th>
                 <th>
-                  Model <br /> Number
+                  Model Number
                 </th>
                 <th>
-                  List <br /> Price
+                  List Price
                 </th>
                 <th>
-                  Eon <br /> Price
+                  Eon Price
                 </th>
                 <th>
-                  Eon <br /> Owned
+                  Eon Owned
                 </th>
                 <th>
-                  Purchase <br /> Date
+                  Purchase Date
                 </th>
               </tr>
             </thead>
@@ -267,19 +267,19 @@ const ActivityTable = ({ activities, tab, sections }) => {
                 <th className="w-2/12">Series</th>
                 <th className="w-2/12">Brand</th>
                 <th>
-                  Model <br /> Number
+                  Model Number
                 </th>
                 <th>
-                  Original <br /> Owner
+                  Original Owner
                 </th>
                 <th>
-                  Purchased <br /> Price
+                  Purchased Price
                 </th>
                 <th>
-                  Eon <br /> Owned
+                  Eon Owned
                 </th>
                 <th>
-                  Purchase <br /> Date
+                  Purchase Date
                 </th>
               </tr>
             </thead>
@@ -327,17 +327,17 @@ const ActivityTable = ({ activities, tab, sections }) => {
                 <th className="w-2/12">Series</th>
                 <th className="w-2/12">Brand</th>
                 <th>
-                  Model <br /> Number
+                  Model Number
                 </th>
                 <th>
-                  Authentication <br /> Papers
+                  Authentication Papers
                 </th>
                 <th>Status</th>
                 <th>
-                  Purchase <br /> Date
+                  Purchase Date
                 </th>
                 <th>
-                  Delivery <br /> Date
+                  Delivery Date
                 </th>
               </tr>
             </thead>
