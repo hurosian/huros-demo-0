@@ -336,6 +336,8 @@ table thead th {
 table tbody {
   @apply 
     font-thin
+}
+
 label {
   font-family: "Avenir";
   
