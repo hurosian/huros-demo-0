@@ -111,10 +111,10 @@ const PortfolioModal = ({ open, setOpen, cancelButtonRef, info }) => {
                             </div>
 
                             <div className="mb-4 flex justify-between">
-                              <button className="inline-flex w-full justify-center rounded-md bg-[#201c0f] pt-1 font-['Avenir'] text-slate-300 hover:bg-huros-1 hover:text-black">
+                              <button className="mr-2 inline-flex w-full justify-center rounded-md bg-[#201c0f] pt-1 font-['Avenir'] text-slate-300 hover:bg-huros-1 hover:text-black">
                                 SELL EONS
                               </button>
-                              <button className="inline-flex w-full justify-center rounded-md bg-[#201c0f] pt-1 font-['Avenir'] text-slate-300 hover:bg-huros-1 hover:text-black">
+                              <button className="ml-2 inline-flex w-full justify-center rounded-md bg-[#201c0f] pt-1 font-['Avenir'] text-slate-300 hover:bg-huros-1 hover:text-black">
                                 BUY EONS
                               </button>
                             </div>
