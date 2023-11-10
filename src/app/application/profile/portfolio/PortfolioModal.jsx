@@ -48,6 +48,7 @@ const PortfolioModal = ({ open, setOpen, closeButtonRef, info }) => {
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto"
+                    title="Close"
                     ref={closeButtonRef}
                     onClick={() => setOpen(false)}
                   >
@@ -60,7 +61,7 @@ const PortfolioModal = ({ open, setOpen, closeButtonRef, info }) => {
                       <div className="mt-2 max-w-3xl">
                         <div className="grid w-full grid-cols-2 gap-4">
                           <div>
-                            <div className="flex cursor-pointer flex-col items-center p-3">
+                            <div className="flex flex-col items-center p-3">
                               <div className="relative mb-2 border border-huros-1">
                                 <Image
                                   src={info.image_source}
