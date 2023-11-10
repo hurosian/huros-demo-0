@@ -155,7 +155,7 @@ export default function Activities({}) {
       setTab(sections.vaultCollection);
       return;
     }
-    
+
     setTab(sections[tabClicked]);
   };
 
@@ -201,21 +201,11 @@ const ActivityTable = ({ activities, tab, sections }) => {
                 <th className="">Ref</th>
                 <th className="w-2/12">Series</th>
                 <th className="w-2/12">Brand</th>
-                <th>
-                  Model Number
-                </th>
-                <th>
-                  List Price
-                </th>
-                <th>
-                  Eon Price
-                </th>
-                <th>
-                  Eon Owned
-                </th>
-                <th>
-                  Purchase Date
-                </th>
+                <th>Model Number</th>
+                <th>List Price</th>
+                <th>Eon Price</th>
+                <th>Eon Owned</th>
+                <th>Purchase Date</th>
               </tr>
             </thead>
             <tbody>
@@ -253,6 +243,11 @@ const ActivityTable = ({ activities, tab, sections }) => {
                   </td>
                 </tr>
               ))}
+              {histories.data.length === 0 && (
+                <tr>
+                  <td colSpan={8}> No record found </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </>
@@ -266,21 +261,11 @@ const ActivityTable = ({ activities, tab, sections }) => {
                 <th className="">Ref</th>
                 <th className="w-2/12">Series</th>
                 <th className="w-2/12">Brand</th>
-                <th>
-                  Model Number
-                </th>
-                <th>
-                  Original Owner
-                </th>
-                <th>
-                  Purchased Price
-                </th>
-                <th>
-                  Eon Owned
-                </th>
-                <th>
-                  Purchase Date
-                </th>
+                <th>Model Number</th>
+                <th>Original Owner</th>
+                <th>Purchased Price</th>
+                <th>Eon Owned</th>
+                <th>Purchase Date</th>
               </tr>
             </thead>
             <tbody>
@@ -313,6 +298,11 @@ const ActivityTable = ({ activities, tab, sections }) => {
                   </td>
                 </tr>
               ))}
+              {histories.data.length === 0 && (
+                <tr>
+                  <td colSpan={8}> No record found </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </>
@@ -326,19 +316,11 @@ const ActivityTable = ({ activities, tab, sections }) => {
                 <th className="">Ref</th>
                 <th className="w-2/12">Series</th>
                 <th className="w-2/12">Brand</th>
-                <th>
-                  Model Number
-                </th>
-                <th>
-                  Authentication Papers
-                </th>
+                <th>Model Number</th>
+                <th>Authentication Papers</th>
                 <th>Status</th>
-                <th>
-                  Purchase Date
-                </th>
-                <th>
-                  Delivery Date
-                </th>
+                <th>Purchase Date</th>
+                <th>Delivery Date</th>
               </tr>
             </thead>
             <tbody>
@@ -375,6 +357,11 @@ const ActivityTable = ({ activities, tab, sections }) => {
                   </td>
                 </tr>
               ))}
+              {histories.data.length === 0 && (
+                <tr>
+                  <td colSpan={8}> No record found </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </>
