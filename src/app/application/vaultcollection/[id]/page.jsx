@@ -27,7 +27,7 @@ export default function VaultCollectionListing({ params }) {
       name: "Nautilus",
       ref: "5711/1A",
       image:
-        "https://images.montro.com/o5svgh219aG4lBp_Uzh2iDgMMxo=/800x0/https%3A%2F%2Famz.luxewatches.co.uk%2Fapp%2Fuploads%2F2022%2F12%2F16161444%2F5811_1G_001_1-1.png",
+      "https://cdn.watchbase.com/watch/patek-philippe/nautilus/5711-1a-011-d1.png",
       movementType: "Automatic",
       case: "Steel, 40mm",
       dial: "White, No numerals",
@@ -45,7 +45,7 @@ export default function VaultCollectionListing({ params }) {
         name: "Nautilus",
         ref: "5711/1A",
         image:
-          "https://images.montro.com/o5svgh219aG4lBp_Uzh2iDgMMxo=/800x0/https%3A%2F%2Famz.luxewatches.co.uk%2Fapp%2Fuploads%2F2022%2F12%2F16161444%2F5811_1G_001_1-1.png",
+        "https://cdn.watchbase.com/watch/patek-philippe/nautilus/5711-1a-011-d1.png",
         eonPrice: 1045.0,
       },
       {

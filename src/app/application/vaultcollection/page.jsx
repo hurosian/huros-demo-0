@@ -14,7 +14,7 @@ export default function VaultCollection() {
         name: "Nautilus",
         ref: "5711/1A",
         image:
-          "https://images.montro.com/o5svgh219aG4lBp_Uzh2iDgMMxo=/800x0/https%3A%2F%2Famz.luxewatches.co.uk%2Fapp%2Fuploads%2F2022%2F12%2F16161444%2F5811_1G_001_1-1.png",
+          "https://cdn.watchbase.com/watch/patek-philippe/nautilus/5711-1a-011-d1.png",
         eonPrice: 1045.0,
       },
       {
@@ -52,7 +52,7 @@ export default function VaultCollection() {
         name: "Nautilus",
         ref: "5711/1A",
         image:
-          "https://images.montro.com/o5svgh219aG4lBp_Uzh2iDgMMxo=/800x0/https%3A%2F%2Famz.luxewatches.co.uk%2Fapp%2Fuploads%2F2022%2F12%2F16161444%2F5811_1G_001_1-1.png",
+          "https://cdn.watchbase.com/watch/patek-philippe/nautilus/5711-1a-011-d1.png",
         eonPrice: 1045.0,
       },
       {
@@ -156,13 +156,13 @@ export default function VaultCollection() {
           style={{ backgroundImage: `url(${BgVault.src})` }}
         />
         <div className="absolute inset-0 h-full w-full bg-black bg-opacity-40" />
-        <div className="absolute inset-0 z-20 flex h-full w-full item px-10s-center">
-          <h2 className="text-huros-1">Huros Vault Collection</h2>
+        <div className="item absolute inset-0 z-20 flex h-full w-full items-center px-10">
+          <h2 className="text-huros-1">Vault Collection</h2>
         </div>
       </section>
       <section id="newest-collection" className="mb-16">
         <h3 className=" mb-4">Newest Collection</h3>
-        <div className=" pb-4 scrollbar flex flex-row gap-x-10 overflow-x-scroll ">
+        <div className=" scrollbar flex flex-row gap-x-10 overflow-x-scroll pb-4 ">
           {data.newestCollection.map((item) => (
             <NewestWatch
               key={item.id}
@@ -264,40 +264,46 @@ function BrandCheckbox({ value, id, label }) {
 
 function WatchItem({ image, name, brand, watchRef, eonPrice, watchId }) {
   return (
-      <Link href={`/application/vaultcollection/${watchId}`} className={`${styles.hoverable} h-76 flex w-52 cursor-pointer flex-col items-center pb-1`}>
-        <div className="relative mb-2 h-52 w-52 border border-huros-1">
-          <Image src={image} fill className=" object-fit p-2" />
-        </div>
-        <p className="text-md">{name}</p>
-        <p className="text-sm">{brand}</p>
-        <p className="mb-2 text-sm">{watchRef}</p>
-        <p className=" text-huros-1">
-          <span className=" text-sm">USD</span> {eonPrice.toFixed(2)}
-          <span className="text-sm">/Eon</span>
-        </p>
-        <button className=" bg-huros-1 px-6">
-          <p className="text-sm text-black ">Buy</p>
-        </button>
-      </Link>
+    <Link
+      href={`/application/vaultcollection/${watchId}`}
+      className={`${styles.hoverable} h-76 flex w-52 cursor-pointer flex-col items-center pb-1`}
+    >
+      <div className="relative mb-2 h-52 w-52 border border-huros-1">
+        <Image src={image} fill className=" object-fit p-2" />
+      </div>
+      <p className="text-md">{name}</p>
+      <p className="text-sm">{brand}</p>
+      <p className="mb-2 text-sm">{watchRef}</p>
+      <p className=" text-huros-1">
+        <span className=" text-sm">USD</span> {eonPrice.toFixed(2)}
+        <span className="text-sm">/Eon</span>
+      </p>
+      <button className=" bg-huros-1 px-6">
+        <p className="text-sm text-black ">Buy</p>
+      </button>
+    </Link>
   );
 }
 
 function NewestWatch({ image, name, brand, watchRef, eonPrice, watchId }) {
   return (
-      <Link href={`/application/vaultcollection/${watchId}`} className={`${styles.hoverable} h-76 flex w-72 cursor-pointer flex-col items-center pb-3`}>
-        <div className="relative mb-2 h-72 w-72 border border-huros-1">
-          <Image src={image} fill className=" object-fit p-2" />
-        </div>
-        <p className="text-md">{name}</p>
-        <p className="text-sm">{brand}</p>
-        <p className="mb-2 text-sm">{watchRef}</p>
-        <p className=" text-huros-1">
-          <span className=" text-sm">USD</span> {eonPrice.toFixed(2)}
-          <span className="text-sm">/Eon</span>
-        </p>
-        <button className=" bg-huros-1 px-6">
-          <p className="text-sm text-black ">Buy</p>
-        </button>
-      </Link>
+    <Link
+      href={`/application/vaultcollection/${watchId}`}
+      className={`${styles.hoverable} h-76 flex w-72 cursor-pointer flex-col items-center pb-3`}
+    >
+      <div className="relative mb-2 h-72 w-72 border border-huros-1">
+        <Image src={image} fill className=" object-fit p-2" />
+      </div>
+      <p className="text-md">{name}</p>
+      <p className="text-sm">{brand}</p>
+      <p className="mb-2 text-sm">{watchRef}</p>
+      <p className=" text-huros-1">
+        <span className=" text-sm">USD</span> {eonPrice.toFixed(2)}
+        <span className="text-sm">/Eon</span>
+      </p>
+      <button className=" bg-huros-1 px-6">
+        <p className="text-sm text-black ">Buy</p>
+      </button>
+    </Link>
   );
 }
