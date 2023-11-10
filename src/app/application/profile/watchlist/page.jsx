@@ -39,7 +39,7 @@ export default function Watchlist({}) {
   const [watchlist, setWatchlist] = useState(data);
 
   const handleClick = (id) => {
-    const newWatchlist = watchlist.filter((blog) => blog.id !== id);
+    const newWatchlist = watchlist.filter((item) => item.id !== id);
     setWatchlist(newWatchlist);
   };
 
