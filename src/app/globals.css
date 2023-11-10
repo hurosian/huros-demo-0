@@ -338,3 +338,11 @@ table tbody {
     font-thin
     text-slate-300;
 }
+
+label {
+  font-family: "Avenir";
+  
+  @apply
+    text-center
+    text-slate-300;
+}
