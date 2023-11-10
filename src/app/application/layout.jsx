@@ -31,7 +31,9 @@ export default function ApplicationLayout({ children }) {
               className=" m-auto h-32"
             />
           </div>
-          <p className=" col-span-2 m-auto">Marketplace</p>
+          <p className=" col-span-2 m-auto">
+            <Link href="/application/eonsmarketplace">Marketplace</Link>
+          </p>
           <div className="">
             <div className=" m-auto grid h-full grid-flow-col grid-cols-2">
               <EnvelopeIcon className=" m-auto w-10 stroke-huros-1 stroke-1" />

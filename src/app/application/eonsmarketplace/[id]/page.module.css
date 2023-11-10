@@ -1,0 +1,22 @@
+@tailwind components;
+
+
+@layer components {
+    .hoverable button {
+        @apply
+        opacity-0
+        transition ease-in-out
+
+    }
+
+
+    .hoverable:hover {
+        @apply outline outline-1 outline-huros-1 ease-in;
+    }
+
+    .hoverable:hover button {
+        @apply opacity-100 ease-in;
+    }
+
+
+}
