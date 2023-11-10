@@ -11,13 +11,13 @@ const dateStruct = {
   year: "numeric",
 };
 
-const PortfolioModal = ({ open, setOpen, cancelButtonRef, info }) => {
+const PortfolioModal = ({ open, setOpen, closeButtonRef, info }) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
-        initialFocus={cancelButtonRef}
+        initialFocus={closeButtonRef}
         onClose={setOpen}
       >
         <Transition.Child
@@ -48,6 +48,7 @@ const PortfolioModal = ({ open, setOpen, cancelButtonRef, info }) => {
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto"
+                    ref={closeButtonRef}
                     onClick={() => setOpen(false)}
                   >
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />

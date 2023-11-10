@@ -51,7 +51,7 @@ export default function Portfolio({}) {
   // Modal dialog
   const [open, setOpen] = useState(false);
   const [modalInfo, setModalInfo] = useState({});
-  const cancelButtonRef = useRef(null);
+  const closeButtonRef = useRef(null);
 
   const handleClick = (item) => {
     setOpen(true);
@@ -66,7 +66,7 @@ export default function Portfolio({}) {
         <PortfolioModal
           open={open}
           setOpen={setOpen}
-          cancelButtonRef={cancelButtonRef}
+          closeButtonRef={closeButtonRef}
           info={modalInfo}
         />
       </div>
