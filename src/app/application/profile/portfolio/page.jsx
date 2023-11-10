@@ -11,7 +11,7 @@ export default function Portfolio({}) {
     {
       id: 1,
       image_source:
-        "https://images.montro.com/o5svgh219aG4lBp_Uzh2iDgMMxo=/800x0/https%3A%2F%2Famz.luxewatches.co.uk%2Fapp%2Fuploads%2F2022%2F12%2F16161444%2F5811_1G_001_1-1.png",
+      "https://cdn.watchbase.com/watch/patek-philippe/nautilus/5711-1a-011-d1.png",
       brand: "Patek Phillipe",
       series: "Nautilus White Dial",
       model_number: "5711/1A-011",
