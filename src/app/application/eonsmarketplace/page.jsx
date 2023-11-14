@@ -264,7 +264,15 @@ function WatchItem({
         </div>
         <div className=" flex flex-col items-center col-span-2">
           <p className=" text-xs">Price</p>
-          <p className=" text-huros-1"> <span className=" text-xs mr-1"> USD</span>{(numberOfEons * sellingPrice).toFixed(2)}</p>
+          <p className=" text-huros-1"> 
+            {/* <span className=" text-xs mr-1"> USD</span> */}
+            {/* {(numberOfEons * sellingPrice).toFixed(2)} */}
+            {(numberOfEons * sellingPrice).toLocaleString("en-US", {
+              style: "currency",
+              currency: "USD",
+              currencyDisplay: "code",
+            })}
+          </p>
         </div>
       </div>
       <button className=" bg-huros-1 px-6">
