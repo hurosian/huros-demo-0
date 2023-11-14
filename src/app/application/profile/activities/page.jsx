@@ -198,14 +198,14 @@ const ActivityTable = ({ activities, tab, sections }) => {
           <table className="w-full text-center text-white">
             <thead>
               <tr>
-                <th className="">Ref</th>
-                <th className="w-2/12">Series</th>
-                <th className="w-2/12">Brand</th>
-                <th>Model Number</th>
-                <th>List Price</th>
-                <th>Eon Price</th>
-                <th>Eon Owned</th>
-                <th>Purchase Date</th>
+                <th className="w-3/20">Ref</th>
+                <th className="w-1/10">Series</th>
+                <th className="w-1/10">Brand</th>
+                <th className="w-13/100">Model No</th>
+                <th className="w-13/100">List Price</th>
+                <th className="w-13/100">Eon Price</th>
+                <th className="w-13/100">Eon Owned</th>
+                <th className="w-13/100">Purchase Date</th>
               </tr>
             </thead>
             <tbody>
@@ -258,14 +258,14 @@ const ActivityTable = ({ activities, tab, sections }) => {
           <table className="w-full text-center text-white">
             <thead>
               <tr>
-                <th className="">Ref</th>
-                <th className="w-2/12">Series</th>
-                <th className="w-2/12">Brand</th>
-                <th>Model Number</th>
-                <th>Original Owner</th>
-                <th>Purchased Price</th>
-                <th>Eon Owned</th>
-                <th>Purchase Date</th>
+                <th className="w-3/20">Ref</th>
+                <th className="w-1/10">Series</th>
+                <th className="w-1/10">Brand</th>
+                <th className="w-13/100">Model No</th>
+                <th className="w-13/100">Original Owner</th>
+                <th className="w-13/100">Purchased Price</th>
+                <th className="w-13/100">Eon Owned</th>
+                <th className="w-13/100">Purchase Date</th>
               </tr>
             </thead>
             <tbody>
@@ -313,14 +313,14 @@ const ActivityTable = ({ activities, tab, sections }) => {
           <table className="w-full text-center text-white">
             <thead>
               <tr>
-                <th className="">Ref</th>
-                <th className="w-2/12">Series</th>
-                <th className="w-2/12">Brand</th>
-                <th>Model Number</th>
-                <th>Authentication Papers</th>
-                <th>Status</th>
-                <th>Purchase Date</th>
-                <th>Delivery Date</th>
+                <th className="w-3/20">Ref</th>
+                <th className="w-1/10">Series</th>
+                <th className="w-1/10">Brand</th>
+                <th className="w-13/100">Model No</th>
+                <th className="w-13/100">Authentication Papers</th>
+                <th className="w-13/100">Status</th>
+                <th className="w-13/100">Purchase Date</th>
+                <th className="w-13/100">Delivery Date</th>
               </tr>
             </thead>
             <tbody>
