@@ -13,10 +13,6 @@ export default function Help({}) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    // const userTitle = funcToGetUserTitle();
-    // setTitle(userTitle);
-
-    // Temp assignment
     setTitle("ms");
   }, []);
 
@@ -36,6 +32,7 @@ export default function Help({}) {
                     id="mr"
                     name="title"
                     value="mr"
+                    disabled
                     onChange={(e) => setTitle(e.target.value)}
                     checked={title === "mr"}
                   />
@@ -50,6 +47,7 @@ export default function Help({}) {
                     id="ms"
                     name="title"
                     value="ms"
+                    disabled
                     onChange={(e) => setTitle(e.target.value)}
                     checked={title === "ms"}
                   />
@@ -64,6 +62,7 @@ export default function Help({}) {
                     id="mrs"
                     name="title"
                     value="mrs"
+                    disabled
                     onChange={(e) => setTitle(e.target.value)}
                     checked={title === "mrs"}
                   />
@@ -78,6 +77,7 @@ export default function Help({}) {
                     id="mx"
                     name="title"
                     value="mx"
+                    disabled
                     onChange={(e) => setTitle(e.target.value)}
                     checked={title === "mx"}
                   />
@@ -95,8 +95,10 @@ export default function Help({}) {
               </h4>
               <input
                 id="username"
+                className="disabled:text-slate-400"
                 type="text"
                 value={username}
+                disabled
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
@@ -108,6 +110,7 @@ export default function Help({}) {
                 type="text"
                 placeholder="First Name"
                 value={firstName}
+                disabled
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
@@ -119,6 +122,7 @@ export default function Help({}) {
                 type="text"
                 placeholder="Last Name"
                 value={lastName}
+                disabled
                 onChange={(e) => setLastName(e.target.value)}
               />
             </div>
@@ -130,8 +134,10 @@ export default function Help({}) {
               </h4>
               <input
                 id="email"
+                className="disabled:text-slate-400"
                 type="text"
                 value={email}
+                disabled
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -144,6 +150,7 @@ export default function Help({}) {
                 id="nationality"
                 type="text"
                 defaultValue={nationality || "choose-nationality"}
+                disabled
                 onChange={(e) => setNationality(e.target.value)}
               >
                 <option disabled value="choose-nationality">
@@ -170,7 +177,7 @@ export default function Help({}) {
               ></textarea>
             </div>
 
-            <div className="place-self-center w-full">
+            <div className="w-full place-self-center">
               <button
                 type="submit"
                 className="w-full rounded bg-huros-1 p-2 font-normal text-slate-200"
