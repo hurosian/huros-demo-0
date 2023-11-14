@@ -162,7 +162,7 @@ export default function VaultCollection() {
       </section>
       <section id="newest-collection" className="mb-16">
         <h3 className=" mb-4">Newest Collection</h3>
-        <div className=" scrollbar flex flex-row gap-x-10 overflow-x-scroll pb-4 ">
+        <div className=" scrollbar flex flex-row gap-x-12 overflow-x-scroll pb-4 pl-1">
           {data.newestCollection.map((item) => (
             <NewestWatch
               key={item.id}
@@ -275,7 +275,8 @@ function WatchItem({ image, name, brand, watchRef, eonPrice, watchId }) {
       <p className="text-sm">{brand}</p>
       <p className="mb-2 text-sm">{watchRef}</p>
       <p className=" text-huros-1">
-        <span className=" text-sm">USD</span> {eonPrice.toFixed(2)}
+        {/* <span className=" text-sm">USD</span> {eonPrice.toFixed(2)} */}
+        {convertCurrency(eonPrice)}
         <span className="text-sm">/Eon</span>
       </p>
       <button className=" bg-huros-1 px-6">
@@ -298,7 +299,8 @@ function NewestWatch({ image, name, brand, watchRef, eonPrice, watchId }) {
       <p className="text-sm">{brand}</p>
       <p className="mb-2 text-sm">{watchRef}</p>
       <p className=" text-huros-1">
-        <span className=" text-sm">USD</span> {eonPrice.toFixed(2)}
+        {/* <span className=" text-sm">USD</span> {eonPrice.toFixed(2)} */}
+        {convertCurrency(eonPrice) }
         <span className="text-sm">/Eon</span>
       </p>
       <button className=" bg-huros-1 px-6">
@@ -306,4 +308,12 @@ function NewestWatch({ image, name, brand, watchRef, eonPrice, watchId }) {
       </button>
     </Link>
   );
+}
+
+function convertCurrency(currency) {
+  return (currency).toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    currencyDisplay: "code",
+  });
 }
