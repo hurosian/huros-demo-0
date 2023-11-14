@@ -38,6 +38,11 @@ export default function VaultCollectionListing({ params }) {
       description:
         "The Patek Philippe Nautilus White Dial Ref. 5711/1A-011 is a part of the iconic Nautilus collection, introduced in 1976. Designed by Gerald Genta, this luxury sports watch is celebrated for its elegant yet sporty style and was groundbreaking for its use of stainless steel in high-end watchmaking. The White Dial Ref. 5711/1A-011 continues this legacy, blending timeless design with precision craftsmanship, making it a highly sought-after piece for watch enthusiasts and collectors.",
     },
+    eonListing: {
+      owner: "Beatrix",
+      eons: 1,
+      valuation: 1100
+    },
     newestCollection: [
       {
         id: 1,
@@ -95,6 +100,11 @@ export default function VaultCollectionListing({ params }) {
       fiveYear: "fiveYear",
     },
   };
+
+  const orderStates = {
+    purchase: 'purchase',
+    offer: 'offer',
+  }
 
   const lineData = {
     labels: [
@@ -176,11 +186,12 @@ export default function VaultCollectionListing({ params }) {
     pageUiStates.priceHistory.threeMonth,
   );
   const [overviewUiState, setOverviewUiState] = useState(
-    pageUiStates.overview.ownershipInfo,
+    pageUiStates.overview.placeOrder,
   );
   const [ownershipPriceHistoryUiState, setOwnershipPriceHistoryUiState] =
     useState(pageUiStates.overview.value);
-  const [eonsAmountInput, setEonAmountInput] = useState(0);
+  const [buyOfferInput, setBuyOfferInput] = useState(0);
+  const [orderState, setOrderState] = useState(orderStates.offer)
 
   const {
     totalSeconds,
@@ -225,6 +236,17 @@ export default function VaultCollectionListing({ params }) {
     restart(new Date().setSeconds(new Date().getSeconds() + 10));
   }, [isRunning]);
 
+  useEffect(() => {
+    if(buyOfferInput == data.eonListing.valuation)
+    {
+      setOrderState(orderStates.purchase)
+    }
+    else
+    {
+      setOrderState(orderStates.offer)
+    }
+  },[buyOfferInput])
+
   const changePageUi = () => {
     switch (ownershipPriceHistoryUiState) {
       case pageUiStates.overview.value:
@@ -257,66 +279,61 @@ export default function VaultCollectionListing({ params }) {
 
   const changeOverviewUi = () => {
     switch (overviewUiState) {
-      case pageUiStates.overview.ownershipInfo:
-        return (
-          <>
-            <p className=" mb-14 text-3xl font-bold">Ownership Info</p>
-            <p className=" mb-14 text-sm">Be the first to own this watch!</p>
-            <button
-              className=" mb-2 block h-14 w-full rounded-sm bg-huros-1 px-6"
-              onClick={() =>
-                setOverviewUiState(pageUiStates.overview.placeOrder)
-              }
-            >
-              <p className=" font-bold text-black">Buy Eons</p>
-            </button>
-            <button className=" block h-14 w-full rounded-sm bg-huros-1 px-6">
-              <p className=" font-bold leading-5 text-black">
-                Own at <span className="text-sm">USD</span>
-                {blockchainData.originalListPrice}*
-              </p>
-              <p className=" text-xs text-black">
-                price may increase due to service fees
-              </p>
-            </button>
-          </>
-        );
       case pageUiStates.overview.placeOrder:
         return (
           <>
             <p className=" mb-14 text-3xl font-bold">Place your Order</p>
-            <p className=" mb-4">Eons</p>
-            <div className="mb-14 grid grid-flow-col grid-cols-3">
+            <div className="grid grid-cols-3 grid-flow-col mb-8">
+              <div className=" flex flex-col items-left">
+                <p className="text-sm">Owner</p>
+                <p className=" text-huros-1">Beatrix</p>
+              </div>
+              <div className=" flex flex-col items-start">
+                <p  className="text-sm">Eons</p>
+                <p className=" text-huros-1">1</p>
+              </div>
+              <div className=" flex flex-col items-start">
+                <p className="text-sm">Valuation</p>
+                <p className=" text-huros-1">1100</p>
+              </div>
+            </div>
+            <div className="mb-14 grid grid-flow-col grid-cols-3 gap-x-4">
               <input
                 type="number"
-                max={100}
-                min={1}
                 placeholder="Amount"
-                onChange={(e) => setEonAmountInput(e.target.value)}
+                onChange={(e) => setBuyOfferInput(e.target.value)}
+                value={buyOfferInput}
               />
-              <div />
-              <p>
-                <span className="text-sm">USD</span>{" "}
-                {(() => eonsAmountInput * blockchainData.eonPrice)()}{" "}
+              <button className=" bg-huros-1 rounded-sm" onClick={() => setBuyOfferInput(data.eonListing.valuation)}>
+              <p className=" text-black">
+                Max
               </p>
+              </button>
             </div>
             <button
               className=" mb-2 block h-14 w-full rounded-sm bg-huros-1 px-6 disabled:bg-huros-11"
               onClick={() =>
                 setOverviewUiState(pageUiStates.overview.completeOrder)
               }
-              disabled={eonsAmountInput == 0}
+              disabled={buyOfferInput == 0}
             >
-              <p className=" font-bold text-black">Confirm</p>
+              <p className=" font-bold text-black">{ orderState === orderStates.purchase? "Purchase" : "Offer"}</p>
             </button>
           </>
         );
 
       case pageUiStates.overview.completeOrder:
+        return changeOrderStateUi();
+    }
+  };
+
+  const changeOrderStateUi = () => {
+    switch(orderState)
+    {
+      case orderStates.purchase:
         return (
           <>
-            <>
-              <p className=" mb-14 text-4xl font-black">
+                        <p className=" mb-14 text-4xl font-black">
                 Your Order has been placed
               </p>
               <p className=" mb-14">
@@ -327,18 +344,36 @@ export default function VaultCollectionListing({ params }) {
                 will receive an alert when the transaction is complete.
               </p>
               <Link
-                href="/application/vaultcollection"
+                href="/application/eonsmarketplace"
                 className=" mb-2 flex h-14 w-full items-center justify-center rounded-sm bg-huros-1 px-6 "
               >
                 <p className=" self-center text-center font-bold text-black">
-                  Back to the vault
+                  Back to marketplace
                 </p>
-              </Link>
-            </>
+              </Link></>
+        )
+      case orderStates.offer:
+        return (
+          <>
+          <p className=" mb-14 text-4xl font-black">
+          Your request has been sent.
+        </p>
+        <p className=" mb-14">
+          You will receive an alert on the status of the request.
+        </p>
+        <Link
+          href="/application/eonsmarketplace"
+          className=" mb-2 flex h-14 w-full items-center justify-center rounded-sm bg-huros-1 px-6 "
+        >
+          <p className=" self-center text-center font-bold text-black">
+            Back to marketplace
+          </p>
+        </Link>
           </>
-        );
+          
+        )
     }
-  };
+  }
 
   return (
     <div>
