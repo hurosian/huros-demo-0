@@ -272,8 +272,9 @@ export default function VaultCollectionListing({ params }) {
             </button>
             <button className=" block h-14 w-full rounded-sm bg-huros-1 px-6">
               <p className=" font-bold leading-5 text-black">
-                Own at <span className="text-sm">USD</span>
-                {blockchainData.originalListPrice}*
+                {/* Own at <span className="text-sm">USD</span>
+                {blockchainData.originalListPrice}* */}
+                {"Own at " + convertCurrency(blockchainData.originalListPrice) + " *"}
               </p>
               <p className=" text-xs text-black">
                 price may increase due to service fees
@@ -296,8 +297,9 @@ export default function VaultCollectionListing({ params }) {
               />
               <div />
               <p>
-                <span className="text-sm">USD</span>{" "}
-                {(() => eonsAmountInput * blockchainData.eonPrice)()}{" "}
+                {/* <span className="text-sm">USD</span>{" "} */}
+                {/* {(() => eonsAmountInput * blockchainData.eonPrice)()}{" "} */}
+                {(() => convertCurrency(eonsAmountInput * blockchainData.eonPrice))()}
               </p>
             </div>
             <button
@@ -348,7 +350,7 @@ export default function VaultCollectionListing({ params }) {
       >
         <section
           id="watch-image"
-          className=" flex aspect-square h-3/4 flex-col items-center border border-huros-1"
+          className=" flex aspect-square h-3/4 flex-col items-center border border-huros-1 w-11/12"
         >
           <div className=" relative aspect-square h-5/6">
             <Image
@@ -379,15 +381,17 @@ export default function VaultCollectionListing({ params }) {
             <div className=" flex justify-between">
               <p>Original List Price</p>
               <p>
-                <span className=" text-sm">USD</span>
-                {blockchainData.originalListPrice.toFixed(2)}
+                {/* <span className=" text-sm">USD</span>
+                {blockchainData.originalListPrice.toFixed(2)} */}
+                {convertCurrency(blockchainData.originalListPrice)}
               </p>
             </div>
             <div className=" flex justify-between">
               <p>Per Eon Price</p>
               <p>
-                <span className=" text-sm">USD</span>
-                {blockchainData.eonPrice.toFixed(2)}
+                {/* <span className=" text-sm">USD</span>
+                {blockchainData.eonPrice.toFixed(2)} */}
+                {convertCurrency(blockchainData.eonPrice)}
               </p>
             </div>
             <div className=" mb-4 flex justify-between">
@@ -404,8 +408,9 @@ export default function VaultCollectionListing({ params }) {
               <p className=" font-bold text-huros-1">ORACLE SUGGESTED PRICE</p>
               <div className=" flex flex-col items-end">
                 <p className=" font-bold text-huros-1">
-                  <span className=" text-sm">USD</span>
-                  {oraclePrice.toFixed(2)}
+                  {/* <span className=" text-sm">USD</span>
+                  {oraclePrice.toFixed(2)} */}
+                  {convertCurrency(oraclePrice)}
                 </p>
                 <p className=" text-sm text-huros-1">
                   Refreshes in {hours}:{minutes}:{seconds}
@@ -558,7 +563,8 @@ function NewestWatch({ image, name, brand, watchRef, eonPrice, watchId }) {
       <p className="text-sm">{brand}</p>
       <p className="mb-2 text-sm">{watchRef}</p>
       <p className=" text-huros-1">
-        <span className=" text-sm">USD</span> {eonPrice.toFixed(2)}
+        {/* <span className=" text-sm">USD</span> {eonPrice.toFixed(2)} */}
+        {convertCurrency(eonPrice)}
         <span className="text-sm">/Eon</span>
       </p>
       <button className=" bg-huros-1 px-6">
@@ -566,4 +572,12 @@ function NewestWatch({ image, name, brand, watchRef, eonPrice, watchId }) {
       </button>
     </Link>
   );
+}
+
+function convertCurrency(currency) {
+  return (currency).toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    currencyDisplay: "code",
+  });
 }
